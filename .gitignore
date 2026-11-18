@@ -1,0 +1,9 @@
+.godot/
+build/
+.DS_Store
+*.log
+
+# Native tools: build output (scripts/build-tools.sh)
+tools/*/target/
+tools/bin/
+__pycache__/

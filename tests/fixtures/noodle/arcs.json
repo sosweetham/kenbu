@@ -1,0 +1,129 @@
+{
+ "source": "NoodleExtensions/HarmonyPatches/Objects/SliderUpdateNoodlifier.cs SliderUpdate @ 3bbcaf6733f6faa688a70b296b4d83c92c1f5dc8",
+ "map": {
+  "bpm": 120.0,
+  "njs": 16.0,
+  "offset": -0.5,
+  "head_s": 10.0,
+  "tail_s": 11.0,
+  "jump": {
+   "njs": 16.0,
+   "offset": -0.5,
+   "half_jump_beats": 1.5,
+   "half_jump_duration": 0.75,
+   "jump_duration": 1.5,
+   "jump_distance": 24.0,
+   "spawn_ahead_time": 1.25,
+   "move_start_z": 112.65,
+   "move_end_z": 12.65,
+   "jump_end_z": -11.35
+  }
+ },
+ "formulas": "duration = 0.75*jumpDuration + (tail - head); timeSinceHeadNoteJump = songTime - (head - jumpDuration/2) (or time*duration); normalizedTime = that / duration (clamped >= 0 for animation); local = offsetPosition*0.6, local.z += LerpUnclamped(moveEnd.z + headOffset.z, jumpEnd.z + headOffset.z, timeSinceHeadNoteJump/jumpDuration); transform.localPosition = worldRotation' * local; with definitePosition: transform.localPosition = definitePosition*0.6 (no world rotation, no note offset). The ribbon's x and y come from the arc mesh (head and tail coordinates).",
+ "scene_values_used": {
+  "centerPos.z": 0.65,
+  "obstacleTopPosY": 3.1,
+  "yAvoidanceUp": 0.45,
+  "yAvoidanceDown": 0.15,
+  "jumpOffsetY": 0.0,
+  "NoteMovement._zOffset": 0.0
+ },
+ "samples": [
+  {
+   "song_time": 9.0,
+   "time_since_head_jump": -0.25,
+   "normalized_time": -0.117647,
+   "anim_time": 0.0,
+   "normalized_head_time": -0.166667,
+   "transform_local_unity": [
+    0.0,
+    0.0,
+    16.65
+   ]
+  },
+  {
+   "song_time": 9.25,
+   "time_since_head_jump": 0.0,
+   "normalized_time": 0.0,
+   "anim_time": 0.0,
+   "normalized_head_time": 0.0,
+   "transform_local_unity": [
+    0.0,
+    0.0,
+    12.65
+   ]
+  },
+  {
+   "song_time": 9.5,
+   "time_since_head_jump": 0.25,
+   "normalized_time": 0.117647,
+   "anim_time": 0.117647,
+   "normalized_head_time": 0.166667,
+   "transform_local_unity": [
+    0.0,
+    0.0,
+    8.65
+   ]
+  },
+  {
+   "song_time": 10.0,
+   "time_since_head_jump": 0.75,
+   "normalized_time": 0.352941,
+   "anim_time": 0.352941,
+   "normalized_head_time": 0.5,
+   "transform_local_unity": [
+    0.0,
+    0.0,
+    0.65
+   ]
+  },
+  {
+   "song_time": 10.5,
+   "time_since_head_jump": 1.25,
+   "normalized_time": 0.588235,
+   "anim_time": 0.588235,
+   "normalized_head_time": 0.833333,
+   "transform_local_unity": [
+    0.0,
+    0.0,
+    -7.35
+   ]
+  },
+  {
+   "song_time": 11.0,
+   "time_since_head_jump": 1.75,
+   "normalized_time": 0.823529,
+   "anim_time": 0.823529,
+   "normalized_head_time": 1.166667,
+   "transform_local_unity": [
+    0.0,
+    0.0,
+    -15.35
+   ]
+  },
+  {
+   "song_time": 11.5,
+   "time_since_head_jump": 2.25,
+   "normalized_time": 1.058824,
+   "anim_time": 1.058824,
+   "normalized_head_time": 1.5,
+   "transform_local_unity": [
+    0.0,
+    0.0,
+    -23.35
+   ]
+  },
+  {
+   "song_time": 11.875,
+   "time_since_head_jump": 2.625,
+   "normalized_time": 1.235294,
+   "anim_time": 1.235294,
+   "normalized_head_time": 1.75,
+   "transform_local_unity": [
+    0.0,
+    0.0,
+    -29.35
+   ]
+  }
+ ]
+}

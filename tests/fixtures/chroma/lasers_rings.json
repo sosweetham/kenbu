@@ -1,0 +1,154 @@
+{
+ "source": "Chroma/HarmonyPatches/Events/LightRotationChromafier.cs, LightPairRotationChromafier.cs, RingRotationChromafier.cs, RingStepChromafier.cs, Chroma/Lighting/ChromaRingsRotationEffect.cs, Chroma/HarmonyPatches/EnvironmentComponent/TrackLaneRingOffset.cs @ 3bbcaf6733f6faa688a70b296b4d83c92c1f5dc8",
+ "lasers": {
+  "rule": "speed (or the int value) * 20 degrees per second about the laser's own axis; direction 0: left negative, right positive; 1: the reverse; absent: random sign. value 0 stops (and resets the angle unless lockRotation); value > 0 starts (and, unless lockRotation, resets then adds a random 0-180 degree start angle). Negative values do nothing.",
+  "cases": [
+   {
+    "value": 3,
+    "speed": null,
+    "direction": 0,
+    "left_type12": true,
+    "result": {
+     "enabled": true,
+     "deg_per_s": -60,
+     "abs_deg_per_s": 60,
+     "direction_random": false
+    }
+   },
+   {
+    "value": 3,
+    "speed": null,
+    "direction": 0,
+    "left_type12": false,
+    "result": {
+     "enabled": true,
+     "deg_per_s": 60,
+     "abs_deg_per_s": 60,
+     "direction_random": false
+    }
+   },
+   {
+    "value": 1,
+    "speed": 0.5,
+    "direction": 1,
+    "left_type12": true,
+    "result": {
+     "enabled": true,
+     "deg_per_s": 10.0,
+     "abs_deg_per_s": 10.0,
+     "direction_random": false
+    }
+   },
+   {
+    "value": 1,
+    "speed": 0.0,
+    "direction": 1,
+    "left_type12": false,
+    "result": {
+     "enabled": true,
+     "deg_per_s": 0.0,
+     "abs_deg_per_s": 0.0,
+     "direction_random": false
+    }
+   },
+   {
+    "value": 0,
+    "speed": 2.0,
+    "direction": 1,
+    "left_type12": true,
+    "result": {
+     "enabled": false,
+     "deg_per_s": 0.0
+    }
+   },
+   {
+    "value": 5,
+    "speed": null,
+    "direction": null,
+    "left_type12": true,
+    "result": {
+     "enabled": true,
+     "deg_per_s": null,
+     "abs_deg_per_s": 100,
+     "direction_random": true
+    }
+   }
+  ]
+ },
+ "rings": {
+  "rule": "angle = first ring's destination + rotation * (direction 1 ? -1 : +1) (positive Z is counter-clockwise as the player sees it); ring i's destination = angle + i * step; ring i gets it when ProgressPos (+= prop per fixed tick) passes i; each fixed tick rotZ = Lerp(rotZ, dest, dt * speed) clamped. reset: rotation = base, step 0, prop 50, speed 50. counterSpin flips direction for rings whose spawner name lacks 'Big'.",
+  "case": {
+   "event": {
+    "rotation": 45,
+    "step": 10,
+    "prop": 1,
+    "speed": 2,
+    "direction": 1
+   },
+   "first_ring_destination_before": 0.0,
+   "effect": {
+    "angle": -45.0,
+    "step": 10,
+    "prop": 1,
+    "speed": 2
+   },
+   "ring_destinations_deg": [
+    -45.0,
+    -35.0,
+    -25.0,
+    -15.0,
+    -5.0,
+    5.0,
+    15.0,
+    25.0
+   ],
+   "fixed_tick_each_ring_is_set": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "fixed_tick_each_ring_is_set_prop_2_5": [
+    1,
+    1,
+    1,
+    2,
+    2,
+    3,
+    3,
+    3
+   ],
+   "fixed_tick_each_ring_is_set_prop_0_5": [
+    1,
+    3,
+    5,
+    7,
+    9,
+    11,
+    13,
+    15
+   ],
+   "ring0_angle_after_ticks_dt_0_02": {
+    "1": -1.8,
+    "10": -15.082531,
+    "50": -39.155139
+   }
+  },
+  "zoom": {
+   "rule": "ring i destination z = i * step (step = Chroma step, else max step on even sameTypeIndex / min on odd); moves with Lerp(z, dest, dt * speed) per fixed tick, speed = Chroma speed else the environment's move speed",
+   "example_step_5": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0
+   ]
+  }
+ },
+ "fixed_dt_note": "dt is Unity's fixed timestep (the game's value is not in public sources; 0.02 s is Unity's default and is used here only to illustrate)."
+}

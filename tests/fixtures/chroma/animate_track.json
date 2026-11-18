@@ -1,0 +1,426 @@
+{
+ "source": "Heck/Animation/Events/CoroutineEventManager.cs, Heck/HeckImplementation/CustomDataTypes.cs @ 3bbcaf6733f6faa688a70b296b4d83c92c1f5dc8",
+ "note": "song_seconds and event time in seconds; duration in beats converted with the BPM current when the event fires. Before the event the property is unset (null).",
+ "cases": [
+  {
+   "name": "4 beats at 120 BPM = 2 s, linear position",
+   "bpm": 120,
+   "event": {
+    "time": 10.0,
+    "duration": 4,
+    "kind": "vector3",
+    "points": [
+     [
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      10,
+      0,
+      1
+     ]
+    ]
+   },
+   "samples": [
+    {
+     "song_seconds": 9.9,
+     "value": null
+    },
+    {
+     "song_seconds": 10.0,
+     "value": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    {
+     "song_seconds": 11.0,
+     "value": [
+      0.0,
+      5.0,
+      0.0
+     ]
+    },
+    {
+     "song_seconds": 12.0,
+     "value": [
+      0.0,
+      10.0,
+      0.0
+     ]
+    },
+    {
+     "song_seconds": 13.0,
+     "value": [
+      0.0,
+      10.0,
+      0.0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "event easing easeInQuad on normalized time",
+   "bpm": 60,
+   "event": {
+    "time": 0.0,
+    "duration": 2,
+    "easing": "easeInQuad",
+    "kind": "float",
+    "points": [
+     [
+      0,
+      0
+     ],
+     [
+      1,
+      1
+     ]
+    ]
+   },
+   "samples": [
+    {
+     "song_seconds": 0.5,
+     "value": [
+      0.0625
+     ]
+    },
+    {
+     "song_seconds": 1.0,
+     "value": [
+      0.25
+     ]
+    },
+    {
+     "song_seconds": 1.5,
+     "value": [
+      0.5625
+     ]
+    },
+    {
+     "song_seconds": 2.0,
+     "value": [
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "repeat 2 replays the curve 3 times",
+   "bpm": 60,
+   "event": {
+    "time": 0.0,
+    "duration": 1,
+    "repeat": 2,
+    "kind": "float",
+    "points": [
+     [
+      0,
+      0
+     ],
+     [
+      1,
+      1
+     ]
+    ]
+   },
+   "samples": [
+    {
+     "song_seconds": 0.25,
+     "value": [
+      0.25
+     ]
+    },
+    {
+     "song_seconds": 1.25,
+     "value": [
+      0.25
+     ]
+    },
+    {
+     "song_seconds": 2.5,
+     "value": [
+      0.5
+     ]
+    },
+    {
+     "song_seconds": 2.99,
+     "value": [
+      0.99
+     ]
+    },
+    {
+     "song_seconds": 3.5,
+     "value": [
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "duration 0 sets the last point at once",
+   "bpm": 100,
+   "event": {
+    "time": 5.0,
+    "duration": 0,
+    "kind": "vector3",
+    "points": [
+     [
+      1,
+      1,
+      1,
+      0
+     ],
+     [
+      2,
+      2,
+      2,
+      1
+     ]
+    ]
+   },
+   "samples": [
+    {
+     "song_seconds": 5.0,
+     "value": [
+      2.0,
+      2.0,
+      2.0
+     ]
+    },
+    {
+     "song_seconds": 6.0,
+     "value": [
+      2.0,
+      2.0,
+      2.0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "one point sets at once whatever the duration",
+   "bpm": 120,
+   "event": {
+    "time": 0.0,
+    "duration": 8,
+    "kind": "vector3",
+    "points": [
+     [
+      3,
+      0,
+      0,
+      0.5
+     ]
+    ]
+   },
+   "samples": [
+    {
+     "song_seconds": 0.0,
+     "value": [
+      3.0,
+      0.0,
+      0.0
+     ]
+    },
+    {
+     "song_seconds": 1.0,
+     "value": [
+      3.0,
+      0.0,
+      0.0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "rotation (Unity quaternion x,y,z,w) over 2 beats at 120 BPM with easeInOutSine",
+   "bpm": 120,
+   "event": {
+    "time": 1.0,
+    "duration": 2,
+    "easing": "easeInOutSine",
+    "kind": "quaternion",
+    "points": [
+     [
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      90,
+      0,
+      1
+     ]
+    ]
+   },
+   "samples": [
+    {
+     "song_seconds": 1.0,
+     "value": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    },
+    {
+     "song_seconds": 1.25,
+     "value": [
+      0.0,
+      0.114765,
+      0.0,
+      0.993393
+     ]
+    },
+    {
+     "song_seconds": 1.5,
+     "value": [
+      0.0,
+      0.382683,
+      0.0,
+      0.92388
+     ]
+    },
+    {
+     "song_seconds": 2.0,
+     "value": [
+      0.0,
+      0.707107,
+      0.0,
+      0.707107
+     ]
+    },
+    {
+     "song_seconds": 2.5,
+     "value": [
+      0.0,
+      0.707107,
+      0.0,
+      0.707107
+     ]
+    }
+   ]
+  },
+  {
+   "name": "scale with repeat 1 and a point easing",
+   "bpm": 60,
+   "event": {
+    "time": 0.0,
+    "duration": 1,
+    "repeat": 1,
+    "kind": "vector3",
+    "points": [
+     [
+      1,
+      1,
+      1,
+      0
+     ],
+     [
+      2,
+      2,
+      2,
+      1,
+      "easeOutQuad"
+     ]
+    ]
+   },
+   "samples": [
+    {
+     "song_seconds": 0.5,
+     "value": [
+      1.75,
+      1.75,
+      1.75
+     ]
+    },
+    {
+     "song_seconds": 1.5,
+     "value": [
+      1.75,
+      1.75,
+      1.75
+     ]
+    },
+    {
+     "song_seconds": 2.5,
+     "value": [
+      2.0,
+      2.0,
+      2.0
+     ]
+    }
+   ]
+  }
+ ],
+ "multiple_tracks": {
+  "rule": "TransformController (Heck/Animation/Transform/TransformController.cs): with several tracks, position and localPosition are summed, scale multiplied per component, rotation and localRotation multiplied as quaternions in track order; a property no track sets stays unset; localPosition wins over position and localRotation over rotation; v2 positions are multiplied by 0.6.",
+  "example": {
+   "tracks": [
+    {
+     "position": [
+      1,
+      2,
+      3
+     ],
+     "scale": [
+      2,
+      2,
+      2
+     ],
+     "rotation": [
+      0,
+      90,
+      0
+     ]
+    },
+    {
+     "position": [
+      1,
+      0,
+      0
+     ],
+     "scale": [
+      1,
+      0.5,
+      1
+     ],
+     "rotation": [
+      90,
+      0,
+      0
+     ]
+    }
+   ],
+   "v2": false,
+   "position": [
+    2,
+    2,
+    3
+   ],
+   "scale": [
+    2,
+    1,
+    2
+   ],
+   "rotation_unity_quat": [
+    0.5,
+    0.5,
+    -0.5,
+    0.5
+   ],
+   "v2_position_if_v2": [
+    1.2,
+    1.2,
+    1.8
+   ]
+  }
+ }
+}

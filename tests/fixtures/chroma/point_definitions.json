@@ -1,0 +1,574 @@
+{
+ "source": "Heck/Animation/PointDefinition/PointDefinition.cs, FloatPointDefinition.cs, Vector3PointDefinition.cs, Vector4PointDefinition.cs, QuaternionPointDefinition.cs, Modifier.cs, Values.cs @ 3bbcaf6733f6faa688a70b296b4d83c92c1f5dc8",
+ "base_values_used": {
+  "baseNote0Color": [
+   0.784,
+   0.078,
+   0.078,
+   1.0
+  ],
+  "baseHeadLocalPosition": [
+   0.1,
+   1.7,
+   -0.2
+  ],
+  "baseSongTime": [
+   10.0
+  ],
+  "baseSongLength": [
+   200.0
+  ]
+ },
+ "quaternion_note": "Quaternions are Unity (x,y,z,w), canonical w>=0; Godot: (-x,-y,z,w).",
+ "cases": [
+  {
+   "name": "float clamps to the ends; linear between",
+   "kind": "float",
+   "points": [
+    [
+     0,
+     0.25
+    ],
+    [
+     1,
+     0.75
+    ]
+   ],
+   "samples": [
+    {
+     "t": 0,
+     "value": [
+      0.0
+     ]
+    },
+    {
+     "t": 0.25,
+     "value": [
+      0.0
+     ]
+    },
+    {
+     "t": 0.5,
+     "value": [
+      0.5
+     ]
+    },
+    {
+     "t": 0.75,
+     "value": [
+      1.0
+     ]
+    },
+    {
+     "t": 1,
+     "value": [
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "flat form is one point at time 0",
+   "kind": "vector3",
+   "points": [
+    1,
+    2,
+    3
+   ],
+   "samples": [
+    {
+     "t": 0,
+     "value": [
+      1.0,
+      2.0,
+      3.0
+     ]
+    },
+    {
+     "t": 0.5,
+     "value": [
+      1.0,
+      2.0,
+      3.0
+     ]
+    },
+    {
+     "t": 1,
+     "value": [
+      1.0,
+      2.0,
+      3.0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "right point's easing shapes the segment into it",
+   "kind": "vector3",
+   "points": [
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     10,
+     0,
+     0,
+     1,
+     "easeInQuad"
+    ]
+   ],
+   "samples": [
+    {
+     "t": 0.25,
+     "value": [
+      0.625,
+      0.0,
+      0.0
+     ]
+    },
+    {
+     "t": 0.5,
+     "value": [
+      2.5,
+      0.0,
+      0.0
+     ]
+    },
+    {
+     "t": 0.75,
+     "value": [
+      5.625,
+      0.0,
+      0.0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "easeStep holds the left value until the right point's time",
+   "kind": "float",
+   "points": [
+    [
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     "easeStep"
+    ]
+   ],
+   "samples": [
+    {
+     "t": 0.5,
+     "value": [
+      0.0
+     ]
+    },
+    {
+     "t": 0.999,
+     "value": [
+      0.0
+     ]
+    },
+    {
+     "t": 1,
+     "value": [
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "invalid easing name is ignored (linear); 7,010 library points use 'inOutExpo'",
+   "kind": "float",
+   "points": [
+    [
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     "inOutExpo"
+    ]
+   ],
+   "samples": [
+    {
+     "t": 0.25,
+     "value": [
+      0.25
+     ]
+    },
+    {
+     "t": 0.5,
+     "value": [
+      0.5
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Catmull-Rom spline (flag on the right point), neighbours clamp at the ends",
+   "kind": "vector3",
+   "points": [
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     0.5,
+     "splineCatmullRom"
+    ],
+    [
+     2,
+     0,
+     0,
+     1,
+     "splineCatmullRom"
+    ]
+   ],
+   "samples": [
+    {
+     "t": 0.25,
+     "value": [
+      0.4375,
+      0.5625,
+      0.0
+     ]
+    },
+    {
+     "t": 0.5,
+     "value": [
+      1.0,
+      1.0,
+      0.0
+     ]
+    },
+    {
+     "t": 0.75,
+     "value": [
+      1.5625,
+      0.5625,
+      0.0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "unsorted times: binary search assumes sorted input",
+   "kind": "float",
+   "points": [
+    [
+     0,
+     0
+    ],
+    [
+     10,
+     1
+    ],
+    [
+     5,
+     0.5
+    ]
+   ],
+   "samples": [
+    {
+     "t": 0.25,
+     "value": [
+      2.5
+     ]
+    },
+    {
+     "t": 0.75,
+     "value": [
+      5.0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "colour RGB lerp",
+   "kind": "vector4",
+   "points": [
+    [
+     0,
+     1,
+     1,
+     1,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     1,
+     1
+    ]
+   ],
+   "samples": [
+    {
+     "t": 0.5,
+     "value": [
+      0.5,
+      0.5,
+      0.5,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "colour lerpHSV on the right point: cyan to red through green and yellow, no hue wrap",
+   "kind": "vector4",
+   "points": [
+    [
+     0,
+     1,
+     1,
+     1,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     0.5,
+     1,
+     "lerpHSV"
+    ]
+   ],
+   "samples": [
+    {
+     "t": 0.25,
+     "value": [
+      0.0,
+      1.0,
+      0.25,
+      0.875
+     ]
+    },
+    {
+     "t": 0.5,
+     "value": [
+      0.5,
+      1.0,
+      0.0,
+      0.75
+     ]
+    },
+    {
+     "t": 0.75,
+     "value": [
+      1.0,
+      0.75,
+      0.0,
+      0.625
+     ]
+    }
+   ]
+  },
+  {
+   "name": "rotation slerp takes the short way: 0 -> 270 about Y passes -45 at t=0.5",
+   "kind": "quaternion",
+   "points": [
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     270,
+     0,
+     1
+    ]
+   ],
+   "samples": [
+    {
+     "t": 0.5,
+     "value": [
+      0.0,
+      -0.382683,
+      0.0,
+      0.92388
+     ]
+    }
+   ]
+  },
+  {
+   "name": "rotation 0 -> 90 about Y at t=0.25 is 22.5 (slerp)",
+   "kind": "quaternion",
+   "points": [
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     90,
+     0,
+     1
+    ]
+   ],
+   "samples": [
+    {
+     "t": 0.25,
+     "value": [
+      0.0,
+      0.19509,
+      0.0,
+      0.980785
+     ]
+    },
+    {
+     "t": 0.5,
+     "value": [
+      0.0,
+      0.382683,
+      0.0,
+      0.92388
+     ]
+    }
+   ]
+  },
+  {
+   "name": "modifier: [1.5, [2, opMul]] = 3",
+   "kind": "float",
+   "points": [
+    1.5,
+    [
+     2,
+     "opMul"
+    ]
+   ],
+   "samples": [
+    {
+     "t": 0,
+     "value": [
+      3.0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "nested modifiers: [1.5, [2, opMul, [1, opSub]], [4, opAdd]] = 5.5",
+   "kind": "float",
+   "points": [
+    1.5,
+    [
+     2,
+     "opMul",
+     [
+      1,
+      "opSub"
+     ]
+    ],
+    [
+     4,
+     "opAdd"
+    ]
+   ],
+   "samples": [
+    {
+     "t": 0,
+     "value": [
+      5.5
+     ]
+    }
+   ]
+  },
+  {
+   "name": "vector4 opDiv zeroes alpha (Vector3 division)",
+   "kind": "vector4",
+   "points": [
+    1,
+    1,
+    1,
+    1,
+    [
+     2,
+     2,
+     2,
+     2,
+     "opDiv"
+    ]
+   ],
+   "samples": [
+    {
+     "t": 0,
+     "value": [
+      0.5,
+      0.5,
+      0.5,
+      0.0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "base provider with modifier: baseNote0Color * 0.4 rgb",
+   "kind": "vector4",
+   "points": [
+    "baseNote0Color",
+    [
+     0.4,
+     0.4,
+     0.4,
+     1,
+     "opMul"
+    ]
+   ],
+   "samples": [
+    {
+     "t": 0,
+     "value": [
+      0.3136,
+      0.0312,
+      0.0312,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "base provider plus time: [baseHeadLocalPosition, 0.5] is one point at 0.5",
+   "kind": "vector3",
+   "points": [
+    [
+     "baseHeadLocalPosition",
+     0.5
+    ]
+   ],
+   "samples": [
+    {
+     "t": 0,
+     "value": [
+      0.1,
+      1.7,
+      -0.2
+     ]
+    },
+    {
+     "t": 1,
+     "value": [
+      0.1,
+      1.7,
+      -0.2
+     ]
+    }
+   ]
+  }
+ ]
+}

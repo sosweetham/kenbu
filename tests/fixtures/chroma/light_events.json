@@ -1,0 +1,687 @@
+{
+ "source": "Chroma/Lighting/ChromaLightSwitchEventEffect.cs, ChromaIDColorTween.cs, ChromaGradientController.cs, LegacyLightHelper.cs, Chroma/Colorizer/LightColorizer.cs, Chroma/HeckImplementation/CustomDataDeserializer.cs @ 3bbcaf6733f6faa688a70b296b4d83c92c1f5dc8",
+ "inputs": {
+  "environment_colours": {
+   "color0": [
+    1.0,
+    0.0,
+    0.0,
+    1.0
+   ],
+   "color1": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "colorW": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "color0boost": [
+    1.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "color1boost": [
+    0.0,
+    1.0,
+    0.0,
+    1.0
+   ],
+   "colorWboost": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ]
+  },
+  "multipliers": {
+   "light0": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "light1": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "light0boost": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "light1boost": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "highlight0": [
+    1.0,
+    1.0,
+    1.0,
+    1.5
+   ],
+   "highlight1": [
+    1.0,
+    1.0,
+    1.0,
+    1.5
+   ],
+   "highlight0boost": [
+    1.0,
+    1.0,
+    1.0,
+    1.5
+   ],
+   "highlight1boost": [
+    1.0,
+    1.0,
+    1.0,
+    1.5
+   ]
+  },
+  "offColorIntensity": 0.0,
+  "note": "Multipliers stand for the environment's MultipliedColorSO values; Kenbu picks its own (the vectors use alpha 1.5 for highlights so flashes are visible). Event times are seconds; f is floatValue; colours RGBA; output alpha is brightness."
+ },
+ "scenarios": [
+  {
+   "name": "on with Chroma colour; colour alpha times floatValue",
+   "events": [
+    {
+     "t": 1.0,
+     "value": 1,
+     "f": 0.8,
+     "color": [
+      0.0,
+      1.0,
+      0.0,
+      0.5
+     ]
+    }
+   ],
+   "samples": [
+    {
+     "light": 1,
+     "t": 1.5,
+     "rgba": [
+      0.0,
+      1.0,
+      0.0,
+      0.4
+     ]
+    }
+   ]
+  },
+  {
+   "name": "flash: highlight to normal over 0.6 s, easeOutCubic (highlight multiplier alpha 1.5 is this vector's input)",
+   "events": [
+    {
+     "t": 1.0,
+     "value": 2,
+     "f": 1.0,
+     "color": [
+      1.0,
+      0.5,
+      0.0,
+      1.0
+     ]
+    }
+   ],
+   "samples": [
+    {
+     "light": 1,
+     "t": 1.0,
+     "rgba": [
+      1.0,
+      0.5,
+      0.0,
+      1.5
+     ]
+    },
+    {
+     "light": 1,
+     "t": 1.15,
+     "rgba": [
+      1.0,
+      0.5,
+      0.0,
+      1.210938
+     ]
+    },
+    {
+     "light": 1,
+     "t": 1.3,
+     "rgba": [
+      1.0,
+      0.5,
+      0.0,
+      1.0625
+     ]
+    },
+    {
+     "light": 1,
+     "t": 1.6,
+     "rgba": [
+      1.0,
+      0.5,
+      0.0,
+      1.0
+     ]
+    },
+    {
+     "light": 1,
+     "t": 2.0,
+     "rgba": [
+      1.0,
+      0.5,
+      0.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "fade: highlight to off over 1.5 s, easeOutExpo",
+   "events": [
+    {
+     "t": 0.0,
+     "value": 7,
+     "f": 1.0
+    }
+   ],
+   "samples": [
+    {
+     "light": 1,
+     "t": 0.0,
+     "rgba": [
+      1.0,
+      0.0,
+      0.0,
+      1.5
+     ]
+    },
+    {
+     "light": 1,
+     "t": 0.15,
+     "rgba": [
+      1.0,
+      0.0,
+      0.0,
+      0.749267
+     ]
+    },
+    {
+     "light": 1,
+     "t": 0.75,
+     "rgba": [
+      1.0,
+      0.0,
+      0.0,
+      0.045455
+     ]
+    },
+    {
+     "light": 1,
+     "t": 1.5,
+     "rgba": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "flash with event easing easeLinear",
+   "events": [
+    {
+     "t": 0.0,
+     "value": 6,
+     "f": 1.0,
+     "easing": "easeLinear"
+    }
+   ],
+   "samples": [
+    {
+     "light": 1,
+     "t": 0.3,
+     "rgba": [
+      1.0,
+      0.0,
+      0.0,
+      1.25
+     ]
+    }
+   ]
+  },
+  {
+   "name": "v3 transition: easing and lerpType come from the event that starts it (value 1), target is value 4",
+   "events": [
+    {
+     "t": 1.0,
+     "value": 1,
+     "f": 1.0,
+     "color": [
+      0.0,
+      1.0,
+      1.0,
+      1.0
+     ],
+     "easing": "easeInQuad",
+     "lerpType": "HSV"
+    },
+    {
+     "t": 2.0,
+     "value": 4,
+     "f": 0.5,
+     "color": [
+      1.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   ],
+   "samples": [
+    {
+     "light": 1,
+     "t": 1.0,
+     "rgba": [
+      0.0,
+      1.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "light": 1,
+     "t": 1.5,
+     "rgba": [
+      0.0,
+      1.0,
+      0.25,
+      0.875
+     ]
+    },
+    {
+     "light": 1,
+     "t": 2.0,
+     "rgba": [
+      1.0,
+      0.0,
+      0.0,
+      0.5
+     ]
+    },
+    {
+     "light": 1,
+     "t": 2.5,
+     "rgba": [
+      1.0,
+      0.0,
+      0.0,
+      0.5
+     ]
+    }
+   ]
+  },
+  {
+   "name": "off then transition: fades in from the target colour at alpha 0",
+   "events": [
+    {
+     "t": 1.0,
+     "value": 0,
+     "f": 1.0
+    },
+    {
+     "t": 2.0,
+     "value": 8,
+     "f": 1.0,
+     "color": [
+      0.0,
+      1.0,
+      0.0,
+      1.0
+     ]
+    }
+   ],
+   "samples": [
+    {
+     "light": 1,
+     "t": 1.5,
+     "rgba": [
+      0.0,
+      1.0,
+      0.0,
+      0.5
+     ]
+    }
+   ]
+  },
+  {
+   "name": "transition targeting lightID 2 only; light 1 holds",
+   "events": [
+    {
+     "t": 0.0,
+     "value": 1,
+     "f": 1.0,
+     "color": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "t": 1.0,
+     "value": 4,
+     "f": 0.0,
+     "color": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+     ],
+     "lightID": [
+      2
+     ]
+    }
+   ],
+   "samples": [
+    {
+     "light": 1,
+     "t": 0.5,
+     "rgba": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "light": 2,
+     "t": 0.5,
+     "rgba": [
+      1.0,
+      1.0,
+      1.0,
+      0.5
+     ]
+    }
+   ]
+  },
+  {
+   "name": "v2 _lightGradient: 2 beats at 120 BPM, red to blue, colours every light of the type",
+   "events": [
+    {
+     "t": 0.0,
+     "value": 5,
+     "f": 1.0,
+     "bpm": 120,
+     "gradient": {
+      "duration": 2,
+      "start": [
+       1.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "end": [
+       0.0,
+       0.0,
+       1.0,
+       1.0
+      ]
+     }
+    }
+   ],
+   "samples": [
+    {
+     "light": 1,
+     "t": 0.5,
+     "rgba": [
+      0.5,
+      0.0,
+      0.5,
+      1.0
+     ]
+    },
+    {
+     "light": 3,
+     "t": 1.0,
+     "rgba": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "light": 1,
+     "t": 2.0,
+     "rgba": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "legacy RGB (v2 value >= 2000000000) colours later events of the type",
+   "events": [
+    {
+     "t": 0.0,
+     "value": 2016744448
+    },
+    {
+     "t": 1.0,
+     "value": 5,
+     "f": 1.0
+    }
+   ],
+   "samples": [
+    {
+     "light": 1,
+     "t": 1.5,
+     "rgba": [
+      1.0,
+      0.501961,
+      0.0,
+      1.0
+     ]
+    }
+   ],
+   "options": {
+    "legacy": true
+   }
+  },
+  {
+   "name": "boost swaps to the boost colours (no Chroma colour)",
+   "events": [
+    {
+     "t": 0.0,
+     "value": 1,
+     "f": 1.0
+    },
+    {
+     "t": 1.0,
+     "boost": true
+    }
+   ],
+   "samples": [
+    {
+     "light": 1,
+     "t": 0.5,
+     "rgba": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "light": 1,
+     "t": 1.5,
+     "rgba": [
+      0.0,
+      1.0,
+      0.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "white values ignore the Chroma colour",
+   "events": [
+    {
+     "t": 0.0,
+     "value": 9,
+     "f": 1.0,
+     "color": [
+      1.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   ],
+   "samples": [
+    {
+     "light": 1,
+     "t": 0.5,
+     "rgba": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "quirk: a boost toggle recolours every light with the group's latest Chroma colour",
+   "events": [
+    {
+     "t": 0.0,
+     "value": 1,
+     "f": 1.0,
+     "color": [
+      1.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "lightID": [
+      1
+     ]
+    },
+    {
+     "t": 1.0,
+     "value": 1,
+     "f": 1.0,
+     "color": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "lightID": [
+      2
+     ]
+    },
+    {
+     "t": 2.0,
+     "boost": true
+    }
+   ],
+   "samples": [
+    {
+     "light": 1,
+     "t": 0.5,
+     "rgba": [
+      1.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    },
+    {
+     "light": 1,
+     "t": 1.5,
+     "rgba": [
+      1.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    },
+    {
+     "light": 1,
+     "t": 2.5,
+     "rgba": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "an event without colour clears the override for the lights it touches",
+   "events": [
+    {
+     "t": 0.0,
+     "value": 1,
+     "f": 1.0,
+     "color": [
+      1.0,
+      1.0,
+      0.0,
+      1.0
+     ]
+    },
+    {
+     "t": 1.0,
+     "value": 1,
+     "f": 1.0
+    }
+   ],
+   "samples": [
+    {
+     "light": 1,
+     "t": 0.5,
+     "rgba": [
+      1.0,
+      1.0,
+      0.0,
+      1.0
+     ]
+    },
+    {
+     "light": 1,
+     "t": 1.5,
+     "rgba": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  }
+ ]
+}

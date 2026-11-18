@@ -1,0 +1,52 @@
+# rabex 0.3.1 (crates.io, MIT OR Apache-2.0), vendored for kenbu-import with these changes:
+# - files/bundlefile/mod.rs: UnityFS headers have no extra byte after the flags (only UnityWeb and
+#   UnityRaw v6 do; UnityPy files/BundleFile.py read_fs). Reading it broke every format-6 bundle.
+# - serde_typetree/de.rs, files/serializedfile/mod.rs, typetree/mod.rs, files/bundlefile/reader.rs:
+#   malformed type trees, type ids and entry ranges return errors instead of panicking, and the
+#   recursive type tree reader is depth-limited (the files are untrusted downloads).
+# - Examples, tests and dev-dependencies removed; lz4_flex raised to 0.14 to share kenbu-import's.
+
+[package]
+edition = "2024"
+name = "rabex"
+version = "0.3.1"
+authors = [
+    "Rudolf Kolbe <rkolbe96@gmail.com>",
+    "Jakob Hellermann <jakobhellermann@protonmail.com>",
+]
+description = "Tools for parsing and writing unity files, bundles and typetrees"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/jakobhellermann/RustyAssetBundleEXtractor"
+publish = false
+
+[features]
+compression-all = ["compression-lzma", "compression-lz4", "compression-lz4hc"]
+compression-lz4 = ["dep:lz4_flex"]
+compression-lz4hc = ["dep:lz4"]
+compression-lzma = ["dep:lzma-rs"]
+default = ["embed-tpk", "compression-lzma", "compression-lz4"]
+embed-tpk = ["compression-lz4"]
+serde_path_to_error = ["dep:serde_path_to_error"]
+tpk-compression-brotli = ["dep:brotli"]
+unitycn = ["dep:cbc", "dep:aes"]
+
+[lib]
+name = "rabex"
+path = "src/lib.rs"
+
+[dependencies]
+aes = { version = "0.9", optional = true }
+bitflags = "2.9"
+brotli = { version = "8.0", optional = true }
+byteorder = "1.5"
+cbc = { version = "0.2", optional = true }
+elsa = "1.11"
+lz4 = { version = "1.28", optional = true }
+lz4_flex = { version = "0.14", default-features = false, features = ["std", "safe-decode", "checked-decode"], optional = true }
+lzma-rs = { version = "0.3.0", optional = true }
+md4 = "0.11"
+num_enum = { version = "0.7", default-features = false }
+rustc-hash = "2.1"
+serde = "1.0"
+serde_derive = "1.0"
+serde_path_to_error = { version = "0.1.17", optional = true }

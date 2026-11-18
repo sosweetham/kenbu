@@ -1,0 +1,94 @@
+{
+ "source": "NoodleExtensions CustomDataTypes.cs NoodleObjectData, FakeNotesJSON.cs, FakePatchesManager.cs, FakeNotes/*.cs, BeatmapDataFakeCount.cs @ 3bbcaf6733f6faa688a70b296b4d83c92c1f5dc8; CustomJSONData CustomData.TryGet",
+ "v2": [
+  {
+   "v2_customData": {},
+   "Fake": null,
+   "Uninteractable": null,
+   "counted_and_scored": true,
+   "can_be_cut_or_hurt": true
+  },
+  {
+   "v2_customData": {
+    "_fake": true
+   },
+   "Fake": true,
+   "Uninteractable": null,
+   "counted_and_scored": false,
+   "can_be_cut_or_hurt": true
+  },
+  {
+   "v2_customData": {
+    "_interactable": false
+   },
+   "Fake": null,
+   "Uninteractable": true,
+   "counted_and_scored": true,
+   "can_be_cut_or_hurt": false
+  },
+  {
+   "v2_customData": {
+    "_interactable": true
+   },
+   "Fake": null,
+   "Uninteractable": false,
+   "counted_and_scored": true,
+   "can_be_cut_or_hurt": true
+  },
+  {
+   "v2_customData": {
+    "_interactable": 0
+   },
+   "Fake": null,
+   "Uninteractable": true,
+   "counted_and_scored": true,
+   "can_be_cut_or_hurt": false
+  },
+  {
+   "v2_customData": {
+    "_fake": true,
+    "_interactable": false
+   },
+   "Fake": true,
+   "Uninteractable": true,
+   "counted_and_scored": false,
+   "can_be_cut_or_hurt": false
+  }
+ ],
+ "v3": [
+  {
+   "where": "colorNotes / bombNotes / obstacles / sliders / burstSliders",
+   "customData": {},
+   "Fake": null,
+   "Uninteractable": null
+  },
+  {
+   "where": "customData.fakeColorNotes / fakeBombNotes / fakeObstacles / fakeBurstSliders",
+   "customData": {},
+   "Fake": true,
+   "Uninteractable": null
+  },
+  {
+   "where": "colorNotes",
+   "customData": {
+    "uninteractable": true
+   },
+   "Fake": null,
+   "Uninteractable": true
+  },
+  {
+   "where": "colorNotes",
+   "customData": {
+    "fake": true
+   },
+   "Fake": null,
+   "Uninteractable": null,
+   "note": "a 'fake' key is not read in v3 (only the separate arrays make fakes; NE_fake is internal)"
+  }
+ ],
+ "effects": {
+  "Fake": "scoringType Ignore; no cut or miss event reaches scoring, combo or energy; cut still despawns it with cut effects and debris; no hit or bomb sound; fake walls never hurt; v2 fakes are left out of the note, wall and bomb counts; v3 fake arrays were never in the counted arrays",
+  "Uninteractable": "notes: cut colliders never enabled (NoteDidStartJump skipped), so the note is missed unless it is also fake; bombs: canBeCut false; arcs: no saber attraction; walls: bounds size 0, never hurt",
+  "interactable (animated, float)": "notes and bombs: canBeCut = value >= 1 each frame; walls (as coded): value >= 1 zeroes the bounds (no collision) and < 1 restores them, the reverse of the documentation"
+ }
+}

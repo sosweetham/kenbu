@@ -1,0 +1,194 @@
+{
+ "source": "NoodleExtensions/Managers/NoodleMovementDataProvider.cs InitObject, SpawnDataManager.cs GetJumpDuration/GetSpawnAheadTime @ 3bbcaf6733f6faa688a70b296b4d83c92c1f5dc8; constants bs-cordl v4008",
+ "scene_values_used": {
+  "centerPos.z": 0.65,
+  "obstacleTopPosY": 3.1,
+  "yAvoidanceUp": 0.45,
+  "yAvoidanceDown": 0.15,
+  "jumpOffsetY": 0.0,
+  "NoteMovement._zOffset": 0.0
+ },
+ "formulas": "half_jump_beats = CalculateHalfJumpDurationInBeats(4, 18, njs, 60/bpm_info, offset); half_jump_duration = beats*60/bpm; jump_duration = 2*half; jump_distance = njs*jump_duration; spawn_ahead_time = 0.5 + half; move_start_z = c + 100 + dist/2; move_end_z = c + dist/2; jump_end_z = c - dist/2 (Unity +z away from the player)",
+ "cases": [
+  {
+   "name": "map values (BSMG worked example)",
+   "bpm": 120,
+   "map_njs": 16,
+   "map_offset": -0.5,
+   "object_njs": null,
+   "object_offset": null,
+   "out": {
+    "njs": 16,
+    "offset": -0.5,
+    "half_jump_beats": 1.5,
+    "half_jump_duration": 0.75,
+    "jump_duration": 1.5,
+    "jump_distance": 24.0,
+    "spawn_ahead_time": 1.25,
+    "move_start_z": 112.65,
+    "move_end_z": 12.65,
+    "jump_end_z": -11.35
+   }
+  },
+  {
+   "name": "Lagtrain ExpertPlus map values",
+   "bpm": 147,
+   "map_njs": 16,
+   "map_offset": -0.725,
+   "object_njs": null,
+   "object_offset": null,
+   "out": {
+    "njs": 16,
+    "offset": -0.725,
+    "half_jump_beats": 1.275,
+    "half_jump_duration": 0.520408,
+    "jump_duration": 1.040816,
+    "jump_distance": 16.653061,
+    "spawn_ahead_time": 1.020408,
+    "move_start_z": 108.976531,
+    "move_end_z": 8.976531,
+    "jump_end_z": -7.676531
+   }
+  },
+  {
+   "name": "Lagtrain note: _noteJumpMovementSpeed 16, _noteJumpStartBeatOffset 1.3",
+   "bpm": 147,
+   "map_njs": 16,
+   "map_offset": -0.725,
+   "object_njs": 16,
+   "object_offset": 1.3,
+   "out": {
+    "njs": 16,
+    "offset": 1.3,
+    "half_jump_beats": 3.3,
+    "half_jump_duration": 1.346939,
+    "jump_duration": 2.693878,
+    "jump_distance": 43.102041,
+    "spawn_ahead_time": 1.846939,
+    "move_start_z": 122.20102,
+    "move_end_z": 22.20102,
+    "jump_end_z": -20.90102
+   }
+  },
+  {
+   "name": "Lagtrain wall art: NJS 20, offset 150 (spawns about a minute early)",
+   "bpm": 147,
+   "map_njs": 16,
+   "map_offset": -0.725,
+   "object_njs": 20,
+   "object_offset": 150,
+   "out": {
+    "njs": 20,
+    "offset": 150,
+    "half_jump_beats": 152.0,
+    "half_jump_duration": 62.040816,
+    "jump_duration": 124.081633,
+    "jump_distance": 2481.632653,
+    "spawn_ahead_time": 62.540816,
+    "move_start_z": 1341.466327,
+    "move_end_z": 1241.466327,
+    "jump_end_z": -1240.166327
+   }
+  },
+  {
+   "name": "Lagtrain wall: NJS 12.5, offset 10",
+   "bpm": 147,
+   "map_njs": 16,
+   "map_offset": -0.725,
+   "object_njs": 12.5,
+   "object_offset": 10,
+   "out": {
+    "njs": 12.5,
+    "offset": 10,
+    "half_jump_beats": 12.0,
+    "half_jump_duration": 4.897959,
+    "jump_duration": 9.795918,
+    "jump_distance": 122.44898,
+    "spawn_ahead_time": 5.397959,
+    "move_start_z": 161.87449,
+    "move_end_z": 61.87449,
+    "jump_end_z": -60.57449
+   }
+  },
+  {
+   "name": "Golden Hour ExpertPlus map values",
+   "bpm": 94.5,
+   "map_njs": 15,
+   "map_offset": -0.1,
+   "object_njs": null,
+   "object_offset": null,
+   "out": {
+    "njs": 15,
+    "offset": -0.1,
+    "half_jump_beats": 0.9,
+    "half_jump_duration": 0.571429,
+    "jump_duration": 1.142857,
+    "jump_distance": 17.142857,
+    "spawn_ahead_time": 1.071429,
+    "move_start_z": 109.221429,
+    "move_end_z": 9.221429,
+    "jump_end_z": -7.921429
+   }
+  },
+  {
+   "name": "object NJS only: offset taken from the map",
+   "bpm": 94.5,
+   "map_njs": 15,
+   "map_offset": -0.1,
+   "object_njs": 30,
+   "object_offset": null,
+   "out": {
+    "njs": 30,
+    "offset": -0.1,
+    "half_jump_beats": 0.4,
+    "half_jump_duration": 0.253968,
+    "jump_duration": 0.507937,
+    "jump_distance": 15.238095,
+    "spawn_ahead_time": 0.753968,
+    "move_start_z": 108.269048,
+    "move_end_z": 8.269048,
+    "jump_end_z": -6.969048
+   }
+  },
+  {
+   "name": "Bad Habits ExpertPlus fake bomb: NJS 10000, offset 32 at 126 BPM (the halving loop leaves 4/2^11 = 0.00195 beats, + 32)",
+   "bpm": 126,
+   "map_njs": 16,
+   "map_offset": -0.875,
+   "object_njs": 10000,
+   "object_offset": 32,
+   "out": {
+    "njs": 10000,
+    "offset": 32,
+    "half_jump_beats": 32.001953,
+    "half_jump_duration": 15.239025,
+    "jump_duration": 30.478051,
+    "jump_distance": 304780.505952,
+    "spawn_ahead_time": 15.739025,
+    "move_start_z": 152490.902976,
+    "move_end_z": 152390.902976,
+    "jump_end_z": -152389.602976
+   }
+  },
+  {
+   "name": "offset below the floor clamps to 0.25 beats",
+   "bpm": 120,
+   "map_njs": 16,
+   "map_offset": -0.5,
+   "object_njs": null,
+   "object_offset": -5,
+   "out": {
+    "njs": 16,
+    "offset": -5,
+    "half_jump_beats": 0.25,
+    "half_jump_duration": 0.125,
+    "jump_duration": 0.25,
+    "jump_distance": 4.0,
+    "spawn_ahead_time": 0.625,
+    "move_start_z": 102.65,
+    "move_end_z": 2.65,
+    "jump_end_z": -1.35
+   }
+  }
+ ]
+}

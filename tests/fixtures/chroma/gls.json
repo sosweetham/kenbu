@@ -1,0 +1,817 @@
+{
+ "source": "Index filters and distributions: ChroMapper dev a6781f8a Assets/__Scripts/Environments/Effects/GLS/IndexFilterHelper.cs, DistributionHelper.cs, EventGroupEffect.cs, LightColorGroupEffect.cs, LightRotationGroupEffect.cs (GPL-2.0, community reconstruction; formulas only) checked against the BSMG wiki @197b0c8b worked examples; JSON keys from CustomJSONData Version3CustomBeatmapSaveData.cs @7c2c32ca.",
+ "filters": [
+  {
+   "group_size": 10,
+   "filter": {
+    "f": 1,
+    "p": 3,
+    "t": 2,
+    "r": 0,
+    "c": 0
+   },
+   "elements": [
+    8,
+    9
+   ],
+   "orders": [
+    0,
+    1
+   ],
+   "count": 2
+  },
+  {
+   "group_size": 10,
+   "filter": {
+    "f": 1,
+    "p": 3,
+    "t": 2,
+    "r": 1,
+    "c": 0
+   },
+   "elements": [
+    1,
+    0
+   ],
+   "orders": [
+    0,
+    1
+   ],
+   "count": 2
+  },
+  {
+   "group_size": 10,
+   "filter": {
+    "f": 1,
+    "p": 2,
+    "t": 0,
+    "r": 0,
+    "c": 3
+   },
+   "elements": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "orders": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1
+   ],
+   "count": 2
+  },
+  {
+   "group_size": 10,
+   "filter": {
+    "f": 1,
+    "p": 2,
+    "t": 0,
+    "r": 1,
+    "c": 3
+   },
+   "elements": [
+    8,
+    9,
+    4,
+    5,
+    6,
+    7
+   ],
+   "orders": [
+    0,
+    0,
+    1,
+    1,
+    1,
+    1
+   ],
+   "count": 2
+  },
+  {
+   "group_size": 10,
+   "filter": {
+    "f": 2,
+    "p": 1,
+    "t": 1,
+    "r": 0,
+    "c": 3
+   },
+   "elements": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "orders": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    1
+   ],
+   "count": 2
+  },
+  {
+   "group_size": 10,
+   "filter": {
+    "f": 2,
+    "p": 1,
+    "t": 1,
+    "r": 1,
+    "c": 3
+   },
+   "elements": [
+    4,
+    5,
+    6,
+    7,
+    0,
+    1,
+    2,
+    3
+   ],
+   "orders": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1
+   ],
+   "count": 2
+  },
+  {
+   "group_size": 10,
+   "filter": {
+    "f": 2,
+    "p": 2,
+    "t": 0,
+    "r": 0,
+    "c": 0
+   },
+   "elements": [
+    2
+   ],
+   "orders": [
+    0
+   ],
+   "count": 1
+  },
+  {
+   "group_size": 10,
+   "filter": {
+    "f": 2,
+    "p": 2,
+    "t": 0,
+    "r": 1,
+    "c": 0
+   },
+   "elements": [
+    7
+   ],
+   "orders": [
+    0
+   ],
+   "count": 1
+  },
+  {
+   "group_size": 12,
+   "filter": {
+    "f": 1,
+    "p": 1,
+    "t": 0,
+    "c": 2
+   },
+   "elements": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "orders": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "count": 2,
+   "visible": 2,
+   "duration_count": 2,
+   "distribution_count": 2
+  },
+  {
+   "group_size": 12,
+   "filter": {
+    "f": 1,
+    "p": 1,
+    "t": 0,
+    "c": 3
+   },
+   "elements": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "orders": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    2,
+    2,
+    2,
+    2
+   ],
+   "count": 3,
+   "visible": 3,
+   "duration_count": 3,
+   "distribution_count": 3
+  },
+  {
+   "group_size": 12,
+   "filter": {
+    "f": 2,
+    "p": 1,
+    "t": 2
+   },
+   "elements": [
+    1,
+    3,
+    5,
+    7,
+    9,
+    11
+   ],
+   "orders": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "count": 6,
+   "visible": 6,
+   "duration_count": 6,
+   "distribution_count": 6
+  },
+  {
+   "group_size": 12,
+   "filter": {
+    "f": 2,
+    "p": 2,
+    "t": 3
+   },
+   "elements": [
+    2,
+    5,
+    8,
+    11
+   ],
+   "orders": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "count": 4,
+   "visible": 4,
+   "duration_count": 4,
+   "distribution_count": 4
+  },
+  {
+   "group_size": 8,
+   "filter": {
+    "f": 1,
+    "p": 2,
+    "t": 1
+   },
+   "elements": [
+    4,
+    5,
+    6,
+    7
+   ],
+   "orders": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "count": 4,
+   "visible": 4,
+   "duration_count": 4,
+   "distribution_count": 4
+  },
+  {
+   "group_size": 8,
+   "filter": {
+    "f": 1,
+    "p": 2,
+    "t": 1,
+    "r": 1
+   },
+   "elements": [
+    3,
+    2,
+    1,
+    0
+   ],
+   "orders": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "count": 4,
+   "visible": 4,
+   "duration_count": 4,
+   "distribution_count": 4
+  },
+  {
+   "group_size": 8,
+   "filter": {
+    "f": 1,
+    "p": 1,
+    "t": 0,
+    "l": 0.5
+   },
+   "elements": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "orders": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "count": 8,
+   "visible": 4,
+   "duration_count": 8,
+   "distribution_count": 8
+  },
+  {
+   "group_size": 8,
+   "filter": {
+    "f": 1,
+    "p": 1,
+    "t": 0,
+    "l": 0.5,
+    "d": 3
+   },
+   "elements": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "orders": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "count": 8,
+   "visible": 4,
+   "duration_count": 4,
+   "distribution_count": 4
+  },
+  {
+   "group_size": 10,
+   "filter": {
+    "f": 1,
+    "p": 5,
+    "t": 3,
+    "c": 2
+   },
+   "elements": null,
+   "orders": null,
+   "count": null,
+   "visible": null,
+   "duration_count": null,
+   "distribution_count": null
+  },
+  {
+   "group_size": 10,
+   "filter": {
+    "f": 2,
+    "p": 10,
+    "t": 1
+   },
+   "elements": null,
+   "orders": null,
+   "count": null,
+   "visible": null,
+   "duration_count": null,
+   "distribution_count": null
+  }
+ ],
+ "beat_step": [
+  {
+   "name": "BSMG: 4 chunks, wave duration 3, one event at 0 -> chunks act at 0,1,2,3",
+   "count": 4,
+   "type": 1,
+   "w": 3,
+   "last_event_beat": 0,
+   "beat_step": 1.0
+  },
+  {
+   "name": "BSMG: 4 chunks, wave 6, events at 0,1,3 -> per-chunk delay 1",
+   "count": 4,
+   "type": 1,
+   "w": 6,
+   "last_event_beat": 3,
+   "beat_step": 1.0
+  },
+  {
+   "name": "step duration 1: chunk i acts i beats later",
+   "count": 4,
+   "type": 2,
+   "w": 1,
+   "last_event_beat": 0,
+   "beat_step": 1
+  },
+  {
+   "name": "wave with last event past w: no spread",
+   "count": 8,
+   "type": 1,
+   "w": 1,
+   "last_event_beat": 2,
+   "beat_step": 0.0
+  }
+ ],
+ "value_distribution": [
+  {
+   "name": "wave brightness -0.9 over 8, linear",
+   "count": 8,
+   "type": 1,
+   "value": -0.9,
+   "easing": 0,
+   "offsets": [
+    0.0,
+    -0.128571,
+    -0.257143,
+    -0.385714,
+    -0.514286,
+    -0.642857,
+    -0.771429,
+    -0.9
+   ]
+  },
+  {
+   "name": "wave 1.0 over 8, InQuad",
+   "count": 8,
+   "type": 1,
+   "value": 1.0,
+   "easing": 1,
+   "offsets": [
+    0.0,
+    0.020408,
+    0.081633,
+    0.183673,
+    0.326531,
+    0.510204,
+    0.734694,
+    1.0
+   ]
+  },
+  {
+   "name": "step 0.1 over 8, linear",
+   "count": 8,
+   "type": 2,
+   "value": 0.1,
+   "easing": 0,
+   "offsets": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7
+   ]
+  },
+  {
+   "name": "step 0.1 over 4, OutQuad",
+   "count": 4,
+   "type": 2,
+   "value": 0.1,
+   "easing": 2,
+   "offsets": [
+    0.0,
+    0.175,
+    0.3,
+    0.375
+   ]
+  },
+  {
+   "name": "wave rotation 120 over 12 (BSMG ring tip)",
+   "count": 12,
+   "type": 1,
+   "value": 120.0,
+   "easing": 0,
+   "offsets": [
+    0.0,
+    10.909091,
+    21.818182,
+    32.727273,
+    43.636364,
+    54.545455,
+    65.454545,
+    76.363636,
+    87.272727,
+    98.181818,
+    109.090909,
+    120.0
+   ]
+  }
+ ],
+ "rotation_end_angle": {
+  "rule": "start = Repeat(previous key's rotation, 360); delta = DeltaAngle(start, Repeat(target,360)); automatic: start+delta plus sign(delta)*loops*360; clockwise (1): if delta < 0 add 360, plus loops*360; counter-clockwise (2): if delta > 0 subtract 360, minus loops*360. Mirrored axes negate.",
+  "cases": [
+   {
+    "start": 0,
+    "target": 90,
+    "loops": 0,
+    "direction": 0,
+    "end_angle": 90.0
+   },
+   {
+    "start": 0,
+    "target": 270,
+    "loops": 0,
+    "direction": 0,
+    "end_angle": -90.0
+   },
+   {
+    "start": 0,
+    "target": 270,
+    "loops": 0,
+    "direction": 1,
+    "end_angle": 270.0
+   },
+   {
+    "start": 0,
+    "target": 90,
+    "loops": 0,
+    "direction": 2,
+    "end_angle": -270.0
+   },
+   {
+    "start": 0,
+    "target": 90,
+    "loops": 1,
+    "direction": 1,
+    "end_angle": 450.0
+   },
+   {
+    "start": 350,
+    "target": 10,
+    "loops": 0,
+    "direction": 0,
+    "end_angle": 370.0
+   },
+   {
+    "start": 10,
+    "target": 350,
+    "loops": 0,
+    "direction": 1,
+    "end_angle": 350.0
+   },
+   {
+    "start": 0,
+    "target": 0,
+    "loops": 1,
+    "direction": 0,
+    "end_angle": 0.0
+   },
+   {
+    "start": 0,
+    "target": 0,
+    "loops": 1,
+    "direction": 1,
+    "end_angle": 360.0
+   }
+  ]
+ },
+ "worked_colour_box": {
+  "group_size": 8,
+  "group_beat": 4.0,
+  "box": {
+   "f": {
+    "f": 1,
+    "p": 1,
+    "t": 0,
+    "r": 0
+   },
+   "w": 1.0,
+   "d": 1,
+   "r": 1.0,
+   "t": 1,
+   "b": 0,
+   "i": 0,
+   "e": [
+    {
+     "b": 0.0,
+     "i": 0,
+     "c": 0,
+     "s": 1.0
+    },
+    {
+     "b": 0.5,
+     "i": 1,
+     "c": 1,
+     "s": 0.0
+    }
+   ]
+  },
+  "beat_step": 0.07142857142857142,
+  "per_element": [
+   {
+    "element": 0,
+    "keys": [
+     {
+      "beat": 4.0,
+      "brightness": 1.0,
+      "colour": "primary (environment colour 0)",
+      "ease_into_this_key": -1
+     },
+     {
+      "beat": 4.5,
+      "brightness": 0.0,
+      "colour": "secondary (environment colour 1)",
+      "ease_into_this_key": 0
+     }
+    ]
+   },
+   {
+    "element": 1,
+    "keys": [
+     {
+      "beat": 4.071429,
+      "brightness": 1.0,
+      "colour": "primary (environment colour 0)",
+      "ease_into_this_key": -1
+     },
+     {
+      "beat": 4.571429,
+      "brightness": 0.142857,
+      "colour": "secondary (environment colour 1)",
+      "ease_into_this_key": 0
+     }
+    ]
+   },
+   {
+    "element": 2,
+    "keys": [
+     {
+      "beat": 4.142857,
+      "brightness": 1.0,
+      "colour": "primary (environment colour 0)",
+      "ease_into_this_key": -1
+     },
+     {
+      "beat": 4.642857,
+      "brightness": 0.285714,
+      "colour": "secondary (environment colour 1)",
+      "ease_into_this_key": 0
+     }
+    ]
+   },
+   {
+    "element": 3,
+    "keys": [
+     {
+      "beat": 4.214286,
+      "brightness": 1.0,
+      "colour": "primary (environment colour 0)",
+      "ease_into_this_key": -1
+     },
+     {
+      "beat": 4.714286,
+      "brightness": 0.428571,
+      "colour": "secondary (environment colour 1)",
+      "ease_into_this_key": 0
+     }
+    ]
+   },
+   {
+    "element": 4,
+    "keys": [
+     {
+      "beat": 4.285714,
+      "brightness": 1.0,
+      "colour": "primary (environment colour 0)",
+      "ease_into_this_key": -1
+     },
+     {
+      "beat": 4.785714,
+      "brightness": 0.571429,
+      "colour": "secondary (environment colour 1)",
+      "ease_into_this_key": 0
+     }
+    ]
+   },
+   {
+    "element": 5,
+    "keys": [
+     {
+      "beat": 4.357143,
+      "brightness": 1.0,
+      "colour": "primary (environment colour 0)",
+      "ease_into_this_key": -1
+     },
+     {
+      "beat": 4.857143,
+      "brightness": 0.714286,
+      "colour": "secondary (environment colour 1)",
+      "ease_into_this_key": 0
+     }
+    ]
+   },
+   {
+    "element": 6,
+    "keys": [
+     {
+      "beat": 4.428571,
+      "brightness": 1.0,
+      "colour": "primary (environment colour 0)",
+      "ease_into_this_key": -1
+     },
+     {
+      "beat": 4.928571,
+      "brightness": 0.857143,
+      "colour": "secondary (environment colour 1)",
+      "ease_into_this_key": 0
+     }
+    ]
+   },
+   {
+    "element": 7,
+    "keys": [
+     {
+      "beat": 4.5,
+      "brightness": 1.0,
+      "colour": "primary (environment colour 0)",
+      "ease_into_this_key": -1
+     },
+     {
+      "beat": 5.0,
+      "brightness": 1.0,
+      "colour": "secondary (environment colour 1)",
+      "ease_into_this_key": 0
+     }
+    ]
+   }
+  ]
+ },
+ "random_note": "Random order (n bit 2 without bit 1) and random element picking with a limit use the game's seeded RNG; not reproducible from public sources."
+}

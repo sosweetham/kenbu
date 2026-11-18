@@ -1,0 +1,20 @@
+[package]
+name = "kenbu-shader"
+version = "1.0.1"
+edition = "2024"
+publish = false
+description = "Translates the compiled shaders in BeatMods (ModelSaber) Unity AssetBundles into Godot shaders for Kenbu"
+
+[dependencies]
+# Bundles, serialized files and type trees, as the importer reads them.
+kenbu-import = { path = "../kenbu-import" }
+lz4_flex = { version = "0.14", default-features = false, features = ["std", "safe-decode", "checked-decode"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["preserve_order"] }
+anyhow = "1"
+
+[profile.release]
+debug = false
+panic = "unwind"
+lto = "thin"
+codegen-units = 4

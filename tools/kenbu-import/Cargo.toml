@@ -1,0 +1,27 @@
+[package]
+name = "kenbu-import"
+version = "1.0.1"
+edition = "2024"
+publish = false
+description = "Converts BeatMods (ModelSaber) Unity AssetBundles into glTF, DDS/PNG textures and a JSON sidecar for Kenbu"
+
+[dependencies]
+# Serialized files and type trees; the UnityFS container itself is read by src/container.rs.
+rabex = { path = "vendor/rabex", default-features = false, features = ["embed-tpk"] }
+lzma-rust2 = { version = "0.25", default-features = false, features = ["std", "optimization"] }
+lz4_flex = { version = "0.14", default-features = false, features = ["std", "safe-decode", "checked-decode"] }
+miniz_oxide = { version = "0.8", default-features = false, features = ["with-alloc"] }
+crc32fast = "1.4"
+texture2ddecoder = "0.1.2"
+png = "0.18"
+half = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["preserve_order"] }
+anyhow = "1"
+
+[profile.release]
+debug = false
+# A malformed bundle must become an error, never an abort: panics unwind to main's catch_unwind.
+panic = "unwind"
+lto = "thin"
+codegen-units = 4

@@ -1,0 +1,422 @@
+{
+ "source": "UnityCsReference master Runtime/Export/Math/Color.cs (RGBToHSV, HSVToRGB hdr=true), Mathf.cs (DeltaAngle, Repeat, LerpUnclamped), Quaternion.cs (Euler order Z, X, Y)",
+ "rgb_to_hsv": [
+  {
+   "rgb": [
+    1,
+    0,
+    0
+   ],
+   "hsv": [
+    0.0,
+    1.0,
+    1
+   ]
+  },
+  {
+   "rgb": [
+    0,
+    1,
+    1
+   ],
+   "hsv": [
+    0.5,
+    1.0,
+    1
+   ]
+  },
+  {
+   "rgb": [
+    0.5,
+    0.25,
+    0.75
+   ],
+   "hsv": [
+    0.75,
+    0.666667,
+    0.75
+   ]
+  },
+  {
+   "rgb": [
+    2,
+    1,
+    0
+   ],
+   "hsv": [
+    0.083333,
+    1.0,
+    2
+   ]
+  },
+  {
+   "rgb": [
+    0,
+    0,
+    0
+   ],
+   "hsv": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "rgb": [
+    0.3,
+    0.3,
+    0.3
+   ],
+   "hsv": [
+    0.0,
+    0.0,
+    0.3
+   ]
+  }
+ ],
+ "hsv_to_rgb": [
+  {
+   "hsv": [
+    0.5,
+    1,
+    1
+   ],
+   "rgba": [
+    0.0,
+    1.0,
+    1,
+    1.0
+   ]
+  },
+  {
+   "hsv": [
+    0.25,
+    1,
+    1
+   ],
+   "rgba": [
+    0.5,
+    1,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "hsv": [
+    0.9,
+    0.5,
+    2
+   ],
+   "rgba": [
+    2,
+    1.0,
+    1.6,
+    1.0
+   ]
+  },
+  {
+   "hsv": [
+    1.0,
+    1,
+    1
+   ],
+   "rgba": [
+    1,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "hsv": [
+    -0.1,
+    1,
+    1
+   ],
+   "rgba": [
+    1,
+    0.0,
+    0.6,
+    1.0
+   ]
+  },
+  {
+   "hsv": [
+    1.2,
+    1,
+    1
+   ],
+   "rgba": [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  }
+ ],
+ "hsv_note": "No hue wrap: floor(H*6) outside -1..6 leaves black (H=1.2 -> 0,0,0). Alpha is always 1.",
+ "delta_angle": [
+  {
+   "current": 0,
+   "target": 270,
+   "delta": -90.0
+  },
+  {
+   "current": 350,
+   "target": 10,
+   "delta": 20.0
+  },
+  {
+   "current": 10,
+   "target": 350,
+   "delta": -20.0
+  },
+  {
+   "current": 0,
+   "target": 180,
+   "delta": 180.0
+  },
+  {
+   "current": 90,
+   "target": -540,
+   "delta": 90.0
+  }
+ ],
+ "euler": [
+  {
+   "unity_euler_deg": [
+    0,
+    90,
+    0
+   ],
+   "unity_quat_xyzw": [
+    0.0,
+    0.707107,
+    0.0,
+    0.707107
+   ],
+   "unity_forward": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "unity_up": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "godot_quat_xyzw": [
+    0.0,
+    -0.707107,
+    0.0,
+    0.707107
+   ],
+   "godot_rotation_degrees_YXZ": [
+    0.0,
+    -90,
+    0.0
+   ],
+   "godot_forward_of_unity_forward": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "unity_euler_deg": [
+    90,
+    0,
+    0
+   ],
+   "unity_quat_xyzw": [
+    0.707107,
+    0.0,
+    0.0,
+    0.707107
+   ],
+   "unity_forward": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "unity_up": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "godot_quat_xyzw": [
+    -0.707107,
+    0.0,
+    0.0,
+    0.707107
+   ],
+   "godot_rotation_degrees_YXZ": [
+    -90,
+    0.0,
+    0.0
+   ],
+   "godot_forward_of_unity_forward": [
+    0.0,
+    -1.0,
+    0.0
+   ]
+  },
+  {
+   "unity_euler_deg": [
+    0,
+    0,
+    90
+   ],
+   "unity_quat_xyzw": [
+    0.0,
+    0.0,
+    0.707107,
+    0.707107
+   ],
+   "unity_forward": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "unity_up": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "godot_quat_xyzw": [
+    0.0,
+    0.0,
+    0.707107,
+    0.707107
+   ],
+   "godot_rotation_degrees_YXZ": [
+    0.0,
+    0.0,
+    90
+   ],
+   "godot_forward_of_unity_forward": [
+    0.0,
+    0.0,
+    -1.0
+   ]
+  },
+  {
+   "unity_euler_deg": [
+    30,
+    45,
+    60
+   ],
+   "unity_quat_xyzw": [
+    0.391904,
+    0.200562,
+    0.360423,
+    0.822363
+   ],
+   "unity_forward": [
+    0.612372,
+    -0.5,
+    0.612372
+   ],
+   "unity_up": [
+    -0.435596,
+    0.433013,
+    0.789149
+   ],
+   "godot_quat_xyzw": [
+    -0.391904,
+    -0.200562,
+    0.360423,
+    0.822363
+   ],
+   "godot_rotation_degrees_YXZ": [
+    -30,
+    -45,
+    60
+   ],
+   "godot_forward_of_unity_forward": [
+    0.612372,
+    -0.5,
+    -0.612372
+   ]
+  },
+  {
+   "unity_euler_deg": [
+    0,
+    270,
+    0
+   ],
+   "unity_quat_xyzw": [
+    0.0,
+    -0.707107,
+    0.0,
+    0.707107
+   ],
+   "unity_forward": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "unity_up": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "godot_quat_xyzw": [
+    0.0,
+    0.707107,
+    0.0,
+    0.707107
+   ],
+   "godot_rotation_degrees_YXZ": [
+    0.0,
+    -270,
+    0.0
+   ],
+   "godot_forward_of_unity_forward": [
+    -1.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "unity_euler_deg": [
+    -20,
+    10,
+    180
+   ],
+   "unity_quat_xyzw": [
+    -0.085832,
+    -0.172987,
+    -0.98106,
+    0.015134
+   ],
+   "unity_forward": [
+    0.163176,
+    0.34202,
+    0.925417
+   ],
+   "unity_up": [
+    0.059391,
+    -0.939693,
+    0.336824
+   ],
+   "godot_quat_xyzw": [
+    0.085832,
+    0.172987,
+    -0.98106,
+    0.015134
+   ],
+   "godot_rotation_degrees_YXZ": [
+    20,
+    -10,
+    180
+   ],
+   "godot_forward_of_unity_forward": [
+    0.163176,
+    0.34202,
+    -0.925417
+   ]
+  }
+ ],
+ "godot_conversion": "Unity (x,y,z) position -> Godot (x,y,-z); quaternion (x,y,z,w) -> (-x,-y,z,w); Euler (ex,ey,ez) -> Godot rotation_degrees (-ex,-ey,ez) in Godot's default YXZ order; scale unchanged."
+}

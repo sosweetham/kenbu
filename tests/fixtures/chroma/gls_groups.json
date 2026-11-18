@@ -1,0 +1,3113 @@
+{
+ "source": "KivalEvan/BeatSaber-JSMap @ 16edcba74dae5315fcc2499ce61bb87e4245f3f1 src/beatmap/misc/environment.ts GroupTrackDefinitions (MIT): group id -> element count and which event-box types it takes, for the v3-era environments the library lights with event boxes (v3 files: Lizzo, Weave, TheSecond, TheRollingStones, Pyro, Dragons2; v4 lightshows: Britney, Collider, Monstercat2)",
+ "environments": {
+  "LizzoEnvironment": {
+   "0": {
+    "count": 40,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "10": {
+    "count": 12,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "15": {
+    "count": 4,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "16": {
+    "count": 4,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "1": {
+    "count": 16,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "2": {
+    "count": 16,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "3": {
+    "count": 16,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "4": {
+    "count": 16,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "5": {
+    "count": 16,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "19": {
+    "count": 14,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "8": {
+    "count": 12,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "9": {
+    "count": 12,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "6": {
+    "count": 1,
+    "color": false,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "7": {
+    "count": 1,
+    "color": false,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "11": {
+    "count": 6,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "12": {
+    "count": 6,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "17": {
+    "count": 3,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "18": {
+    "count": 3,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "13": {
+    "count": 14,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "14": {
+    "count": 14,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   }
+  },
+  "WeaveEnvironment": {
+   "0": {
+    "count": 8,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "1": {
+    "count": 8,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "2": {
+    "count": 8,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "3": {
+    "count": 8,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "4": {
+    "count": 8,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "5": {
+    "count": 8,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "6": {
+    "count": 8,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "7": {
+    "count": 8,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "8": {
+    "count": 8,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "9": {
+    "count": 8,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "10": {
+    "count": 8,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "11": {
+    "count": 8,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "12": {
+    "count": 12,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "13": {
+    "count": 12,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "14": {
+    "count": 8,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "15": {
+    "count": 8,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   }
+  },
+  "TheSecondEnvironment": {
+   "6": {
+    "count": 4,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "7": {
+    "count": 4,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "8": {
+    "count": 4,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "9": {
+    "count": 4,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "10": {
+    "count": 4,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "11": {
+    "count": 4,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "12": {
+    "count": 4,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "13": {
+    "count": 4,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "0": {
+    "count": 15,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "1": {
+    "count": 24,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "2": {
+    "count": 12,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "3": {
+    "count": 12,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "4": {
+    "count": 12,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "5": {
+    "count": 12,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   }
+  },
+  "TheRollingStonesEnvironment": {
+   "0": {
+    "count": 15,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     true
+    ],
+    "fx": true
+   },
+   "1": {
+    "count": 15,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     true
+    ],
+    "fx": true
+   },
+   "26": {
+    "count": 1,
+    "color": false,
+    "rotation_xyz": [
+     false,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "31": {
+    "count": 15,
+    "color": false,
+    "rotation_xyz": [
+     false,
+     false,
+     true
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "32": {
+    "count": 15,
+    "color": false,
+    "rotation_xyz": [
+     false,
+     false,
+     true
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "37": {
+    "count": 4,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "12": {
+    "count": 6,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     true
+    ],
+    "fx": true
+   },
+   "13": {
+    "count": 6,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     true
+    ],
+    "fx": true
+   },
+   "27": {
+    "count": 1,
+    "color": false,
+    "rotation_xyz": [
+     false,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "33": {
+    "count": 6,
+    "color": false,
+    "rotation_xyz": [
+     false,
+     false,
+     true
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "34": {
+    "count": 6,
+    "color": false,
+    "rotation_xyz": [
+     false,
+     false,
+     true
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "43": {
+    "count": 6,
+    "color": false,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": true
+   },
+   "28": {
+    "count": 6,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": true
+   },
+   "29": {
+    "count": 1,
+    "color": false,
+    "rotation_xyz": [
+     false,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "42": {
+    "count": 6,
+    "color": false,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": true
+   },
+   "2": {
+    "count": 4,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "3": {
+    "count": 4,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "4": {
+    "count": 4,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "5": {
+    "count": 4,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "6": {
+    "count": 4,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "7": {
+    "count": 4,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "8": {
+    "count": 4,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "9": {
+    "count": 4,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "22": {
+    "count": 16,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "23": {
+    "count": 16,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "14": {
+    "count": 3,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     false,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "15": {
+    "count": 3,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     false,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "16": {
+    "count": 3,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     false,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "17": {
+    "count": 3,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     false,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "24": {
+    "count": 4,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": true
+   },
+   "18": {
+    "count": 3,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     false,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "19": {
+    "count": 3,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     false,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "20": {
+    "count": 3,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     false,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "21": {
+    "count": 3,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     false,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "25": {
+    "count": 4,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": true
+   },
+   "10": {
+    "count": 16,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "fx": false
+   },
+   "11": {
+    "count": 16,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "fx": false
+   },
+   "35": {
+    "count": 1,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "36": {
+    "count": 1,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "44": {
+    "count": 1,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "45": {
+    "count": 1,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "40": {
+    "count": 1,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "41": {
+    "count": 1,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "39": {
+    "count": 1,
+    "color": false,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     true,
+     false
+    ],
+    "fx": false
+   },
+   "30": {
+    "count": 6,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     false,
+     true,
+     true
+    ],
+    "fx": true
+   },
+   "38": {
+    "count": 6,
+    "color": false,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   }
+  },
+  "PyroEnvironment": {
+   "0": {
+    "count": 3,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "1": {
+    "count": 3,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "8": {
+    "count": 4,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "9": {
+    "count": 4,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "2": {
+    "count": 5,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "3": {
+    "count": 5,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "4": {
+    "count": 3,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "5": {
+    "count": 12,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "6": {
+    "count": 48,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "7": {
+    "count": 48,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "10": {
+    "count": 3,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "11": {
+    "count": 3,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "12": {
+    "count": 10,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "13": {
+    "count": 10,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   }
+  },
+  "Dragons2Environment": {
+   "1": {
+    "count": 96,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "0": {
+    "count": 24,
+    "color": false,
+    "rotation_xyz": [
+     false,
+     false,
+     true
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     true
+    ],
+    "fx": false
+   },
+   "3": {
+    "count": 15,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     true
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     true
+    ],
+    "fx": false
+   },
+   "9": {
+    "count": 5,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "12": {
+    "count": 5,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "10": {
+    "count": 5,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "11": {
+    "count": 5,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "4": {
+    "count": 8,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "5": {
+    "count": 12,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "6": {
+    "count": 12,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "7": {
+    "count": 5,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "8": {
+    "count": 5,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "2": {
+    "count": 35,
+    "color": false,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     true,
+     false
+    ],
+    "fx": false
+   }
+  },
+  "BritneyEnvironment": {
+   "18": {
+    "count": 96,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     true
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     true
+    ],
+    "fx": true
+   },
+   "19": {
+    "count": 96,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     true
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     true
+    ],
+    "fx": true
+   },
+   "0": {
+    "count": 24,
+    "color": false,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": true
+   },
+   "1": {
+    "count": 24,
+    "color": false,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "2": {
+    "count": 24,
+    "color": false,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": true
+   },
+   "3": {
+    "count": 24,
+    "color": false,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "5": {
+    "count": 1,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": true
+   },
+   "20": {
+    "count": 1,
+    "color": false,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": true
+   },
+   "7": {
+    "count": 18,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": true
+   },
+   "6": {
+    "count": 18,
+    "color": false,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "9": {
+    "count": 18,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": true
+   },
+   "8": {
+    "count": 18,
+    "color": false,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "15": {
+    "count": 2,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": true
+   },
+   "14": {
+    "count": 2,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": true
+   },
+   "11": {
+    "count": 76,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "16": {
+    "count": 3,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": true
+   },
+   "17": {
+    "count": 3,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": true
+   },
+   "13": {
+    "count": 3,
+    "color": false,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": true
+   },
+   "12": {
+    "count": 1,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": true
+   },
+   "10": {
+    "count": 1,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": true
+   },
+   "22": {
+    "count": 1,
+    "color": false,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": true
+   },
+   "21": {
+    "count": 4,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   }
+  },
+  "ColliderEnvironment": {
+   "0": {
+    "count": 20,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": true
+   },
+   "25": {
+    "count": 20,
+    "color": false,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": true
+   },
+   "1": {
+    "count": 20,
+    "color": false,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "2": {
+    "count": 40,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "3": {
+    "count": 40,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "4": {
+    "count": 40,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "5": {
+    "count": 40,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "7": {
+    "count": 5,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": true
+   },
+   "26": {
+    "count": 5,
+    "color": false,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": true
+   },
+   "9": {
+    "count": 5,
+    "color": false,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "11": {
+    "count": 10,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "13": {
+    "count": 10,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "15": {
+    "count": 10,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "17": {
+    "count": 10,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "8": {
+    "count": 5,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": true
+   },
+   "27": {
+    "count": 5,
+    "color": false,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": true
+   },
+   "10": {
+    "count": 5,
+    "color": false,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "12": {
+    "count": 10,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "14": {
+    "count": 10,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "16": {
+    "count": 10,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "18": {
+    "count": 10,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "6": {
+    "count": 4,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "21": {
+    "count": 4,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "22": {
+    "count": 4,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "19": {
+    "count": 5,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": true
+   },
+   "20": {
+    "count": 5,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": true
+   },
+   "23": {
+    "count": 1,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": true
+   },
+   "24": {
+    "count": 1,
+    "color": false,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": true
+   }
+  },
+  "Monstercat2Environment": {
+   "6": {
+    "count": 8,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "5": {
+    "count": 4,
+    "color": false,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": true
+   },
+   "8": {
+    "count": 8,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "7": {
+    "count": 4,
+    "color": false,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": true
+   },
+   "16": {
+    "count": 16,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "17": {
+    "count": 16,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "18": {
+    "count": 1,
+    "color": false,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": true
+   },
+   "1": {
+    "count": 32,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": true
+   },
+   "2": {
+    "count": 8,
+    "color": false,
+    "rotation_xyz": [
+     true,
+     false,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": true
+   },
+   "3": {
+    "count": 32,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": true
+   },
+   "4": {
+    "count": 8,
+    "color": false,
+    "rotation_xyz": [
+     true,
+     false,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": true
+   },
+   "0": {
+    "count": 1,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": true
+   },
+   "11": {
+    "count": 3,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "12": {
+    "count": 3,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "13": {
+    "count": 1,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "14": {
+    "count": 4,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "15": {
+    "count": 4,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "10": {
+    "count": 20,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     true
+    ],
+    "fx": false
+   },
+   "9": {
+    "count": 1,
+    "color": false,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "19": {
+    "count": 4,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "20": {
+    "count": 4,
+    "color": true,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "21": {
+    "count": 32,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "22": {
+    "count": 16,
+    "color": false,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": true
+   },
+   "23": {
+    "count": 16,
+    "color": false,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "27": {
+    "count": 32,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "28": {
+    "count": 16,
+    "color": false,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": true
+   },
+   "29": {
+    "count": 16,
+    "color": false,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "24": {
+    "count": 32,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "25": {
+    "count": 16,
+    "color": false,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": true
+   },
+   "26": {
+    "count": 16,
+    "color": false,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   },
+   "30": {
+    "count": 32,
+    "color": true,
+    "rotation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "translation_xyz": [
+     false,
+     false,
+     false
+    ],
+    "fx": false
+   },
+   "31": {
+    "count": 16,
+    "color": false,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": true
+   },
+   "32": {
+    "count": 16,
+    "color": false,
+    "rotation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "translation_xyz": [
+     true,
+     true,
+     true
+    ],
+    "fx": false
+   }
+  }
+ }
+}

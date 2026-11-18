@@ -1,0 +1,242 @@
+{
+ "source": "Chroma/EnvironmentEnhancement/*.cs, Chroma/Lighting/LightIDTableManager.cs, Chroma/Extras/ChromaUtils.cs, Heck/Animation/Transform/TransformData.cs @ 3bbcaf6733f6faa688a70b296b4d83c92c1f5dc8",
+ "full_ids": {
+  "rule": "Scene name, then each ancestor from the root as .[siblingIndex]Name; lookups test the whole string (Regex is an unanchored ECMAScript search).",
+  "objects": [
+   "BillieEnvironment.[0]Environment",
+   "BillieEnvironment.[0]Environment.[12]Rain",
+   "BillieEnvironment.[0]Environment.[30]BackMountains",
+   "DefaultEnvironment.[0]Environment.[5]BigTrackLaneRing(Clone).[0]Ring",
+   "DefaultEnvironment.[0]Environment.[6]BigTrackLaneRing(Clone).[0]Ring",
+   "OriginsEnvironment.[0]Environment.[8]FrontLights.[0]NeonTube"
+  ],
+  "lookups": [
+   {
+    "id": "Rain",
+    "lookupMethod": "EndsWith",
+    "matches": [
+     "BillieEnvironment.[0]Environment.[12]Rain"
+    ]
+   },
+   {
+    "id": "Rain",
+    "lookupMethod": "Contains",
+    "matches": [
+     "BillieEnvironment.[0]Environment.[12]Rain"
+    ]
+   },
+   {
+    "id": "BillieEnvironment.[0]Environment",
+    "lookupMethod": "Exact",
+    "matches": [
+     "BillieEnvironment.[0]Environment"
+    ]
+   },
+   {
+    "id": "BillieEnvironment.[0]Environment",
+    "lookupMethod": "StartsWith",
+    "matches": [
+     "BillieEnvironment.[0]Environment",
+     "BillieEnvironment.[0]Environment.[12]Rain",
+     "BillieEnvironment.[0]Environment.[30]BackMountains"
+    ]
+   },
+   {
+    "id": ".*\\[\\d*[13579]\\]BigTrackLaneRing\\(Clone\\)\\.\\[0\\]Ring$",
+    "lookupMethod": "Regex",
+    "matches": [
+     "DefaultEnvironment.[0]Environment.[5]BigTrackLaneRing(Clone).[0]Ring"
+    ]
+   },
+   {
+    "id": "^.*Environment\\.\\[\\d*\\]FrontLights\\.\\[0\\]NeonTube$",
+    "lookupMethod": "Regex",
+    "matches": [
+     "OriginsEnvironment.[0]Environment.[8]FrontLights.[0]NeonTube"
+    ]
+   },
+   {
+    "id": "Mountains$",
+    "lookupMethod": "Regex",
+    "matches": [
+     "BillieEnvironment.[0]Environment.[30]BackMountains"
+    ]
+   }
+  ]
+ },
+ "transforms": {
+  "v2_position_times_0_6": {
+   "_position": [
+    1.0,
+    2.0,
+    3.0
+   ],
+   "unity_metres": [
+    0.6,
+    1.2,
+    1.8
+   ]
+  },
+  "v3_position_metres": {
+   "position": [
+    1.0,
+    2.0,
+    3.0
+   ],
+   "unity_metres": [
+    1.0,
+    2.0,
+    3.0
+   ],
+   "godot": [
+    1.0,
+    2.0,
+    -3.0
+   ]
+  },
+  "rotation_is_euler_degrees": {
+   "rotation": [
+    30,
+    45,
+    60
+   ],
+   "unity_quat_xyzw": [
+    0.391904,
+    0.200562,
+    0.360423,
+    0.822363
+   ],
+   "godot_rotation_degrees_YXZ": [
+    -30,
+    -45,
+    60
+   ]
+  },
+  "order": "scale, then localPosition (else position), then localRotation (else rotation); track-driven updates apply scale, rotation, then position each frame a track changes."
+ },
+ "light_id_registration": {
+  "rule": "New lights (duplicates, OpaqueLight/TransparentLight/BillieWater geometry, ILightWithId components) take the requested lightID, moving up past taken keys, else max key + 1.",
+  "existing_keys": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "requested": [
+   3,
+   null,
+   3,
+   10,
+   null
+  ],
+  "assigned": [
+   6,
+   7,
+   8,
+   10,
+   11
+  ]
+ },
+ "geometry_primitives_unity": {
+  "Cube": "1 x 1 x 1 box centred on the origin",
+  "Sphere": "radius 0.5",
+  "Capsule": "radius 0.5, height 2 along Y",
+  "Cylinder": "radius 0.5, height 2 along Y (-1..1), capped",
+  "Plane": "10 x 10 in XZ, single-sided, facing +Y",
+  "Quad": "1 x 1 in XY, single-sided, facing -Z (towards the player)",
+  "Triangle": {
+   "vertices": [
+    [
+     -0.5,
+     -0.5,
+     0
+    ],
+    [
+     0.5,
+     -0.5,
+     0
+    ],
+    [
+     0,
+     0.5,
+     0
+    ]
+   ],
+   "uv": [
+    [
+     0,
+     0
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     0.5,
+     1
+    ]
+   ],
+   "triangles": [
+    0,
+    1,
+    2
+   ],
+   "front_face_normal": [
+    0,
+    0,
+    1
+   ],
+   "note": "single-sided; its front faces +Z (away from the player at identity rotation); keep the same vertices and order in Godot (front then faces Godot -Z, still away from the player)."
+  },
+  "godot": "BoxMesh size 1; SphereMesh radius 0.5 height 1; CapsuleMesh radius 0.5 height 2; CylinderMesh radii 0.5 height 2; PlaneMesh 10x10 (faces +Y); QuadMesh 1x1 (faces +Z in Godot = -Z in Unity)."
+ },
+ "materials": {
+  "rule": "shader -> material: Standard/BTSPillar with shaderKeywords [] -> Glowing with colour alpha 0 (BS 1.40.8+); OpaqueLight/TransparentLight/BillieWater make the object a light (TubeBloomPrePassLight + ILightWithId registered with a new lightID); Obstacle is listed but has no material and fails. Material colour defaults to (0,0,0,0).",
+  "cases": [
+   {
+    "material": {
+     "shader": "Standard",
+     "color": [
+      0,
+      1,
+      0,
+      1
+     ]
+    },
+    "result": "lit SimpleLit material, colour (0,1,0,1)"
+   },
+   {
+    "material": {
+     "shader": "Standard",
+     "color": [
+      0,
+      1,
+      0,
+      1
+     ],
+     "shaderKeywords": []
+    },
+    "result": "Glowing (unlit flat), colour (0,1,0,0)"
+   },
+   {
+    "material": {
+     "shader": "OpaqueLight"
+    },
+    "result": "OpaqueNeonLight light object; colour from lighting events of its ILightWithId type"
+   },
+   {
+    "material": {
+     "shader": "InterscopeConcrete",
+     "color": [
+      1,
+      1,
+      1,
+      1
+     ]
+    },
+    "result": "the Interscope environment's 'Concrete2' material copy, colour (1,1,1,1)"
+   }
+  ]
+ }
+}

@@ -1,0 +1,7113 @@
+{
+ "source": "NoodleExtensions SpawnDataManager.cs, NoteInitNoodlifier.cs, NoteFloorMovementNoodlifier.cs, NoteJumpNoodlifier.cs, NoteUpdateNoodlifier.cs, Animation/AnimationHelper.cs, ObjectProcessing/ProcessNotesNoodleDataInTimeRow.cs @ 3bbcaf6733f6faa688a70b296b4d83c92c1f5dc8",
+ "frame": "Unity: +x right, +y up, +z away from the player; origin at the play-space centre on the floor. world = worldRotation' * local (the transform's localPosition). Godot: (x, y, -z), quaternion (-x, -y, z, w).",
+ "map": {
+  "bpm": 120.0,
+  "njs": 16.0,
+  "offset": -0.5,
+  "note_time_s": 10.0,
+  "jump": {
+   "njs": 16.0,
+   "offset": -0.5,
+   "half_jump_beats": 1.5,
+   "half_jump_duration": 0.75,
+   "jump_duration": 1.5,
+   "jump_distance": 24.0,
+   "spawn_ahead_time": 1.25,
+   "move_start_z": 112.65,
+   "move_end_z": 12.65,
+   "jump_end_z": -11.35
+  }
+ },
+ "scene_values_used": {
+  "centerPos.z": 0.65,
+  "obstacleTopPosY": 3.1,
+  "yAvoidanceUp": 0.45,
+  "yAvoidanceDown": 0.15,
+  "jumpOffsetY": 0.0,
+  "NoteMovement._zOffset": 0.0
+ },
+ "reconstruction": "The flip x easing (InOutQuad over the first quarter), the flip y bump (0.5 - 0.5 cos(8 pi s)) and the 0.45 / 0.15 heights are ArcViewer's reconstruction of NoteJump; Noodle quotes only `localPosition.y += num3 * yAvoidance`. The end distance offset after three quarters of the jump is not modelled (unknown). transform_rotation is the NoteController's rotation: the arrow's roll and look rotation are on the child cube and are not included.",
+ "cases": [
+  {
+   "name": "plain note under Noodle: lane 1, row 0, alone in its column (start layer 0)",
+   "input": {
+    "x": 1,
+    "y": 0.0,
+    "start_layer": 0.0
+   },
+   "spawn": {
+    "line_index": 1,
+    "line_layer": 0.0,
+    "start_layer": 0.0,
+    "move_offset": [
+     -0.3,
+     0.25,
+     0.0
+    ],
+    "jump_end_offset": [
+     -0.3,
+     0.25,
+     0.0
+    ],
+    "gravity_base": 0.608333,
+    "note_offset": [
+     -0.3,
+     0.858333,
+     0.0
+    ]
+   },
+   "samples": [
+    {
+     "song_time": 9.0,
+     "phase": "move-in",
+     "jump_progress": null,
+     "anim_time": -0.166667,
+     "local_position_unity": [
+      -0.3,
+      0.25,
+      62.65
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.25,
+      62.65
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.25,
+      -62.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.25,
+     "phase": "jump",
+     "jump_progress": 0.0,
+     "anim_time": 0.0,
+     "local_position_unity": [
+      -0.3,
+      0.25,
+      12.65
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.25,
+      12.65
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.25,
+      -12.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.4375,
+     "phase": "jump",
+     "jump_progress": 0.125,
+     "anim_time": 0.125,
+     "local_position_unity": [
+      -0.3,
+      0.516146,
+      9.65
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.516146,
+      9.65
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.516146,
+      -9.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.625,
+     "phase": "jump",
+     "jump_progress": 0.25,
+     "anim_time": 0.25,
+     "local_position_unity": [
+      -0.3,
+      0.70625,
+      6.65
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.70625,
+      6.65
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.70625,
+      -6.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.0,
+     "phase": "jump",
+     "jump_progress": 0.5,
+     "anim_time": 0.5,
+     "local_position_unity": [
+      -0.3,
+      0.858333,
+      0.65
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.858333,
+      0.65
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.858333,
+      -0.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.375,
+     "phase": "jump",
+     "jump_progress": 0.75,
+     "anim_time": 0.75,
+     "local_position_unity": [
+      -0.3,
+      0.70625,
+      -5.35
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.70625,
+      -5.35
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.70625,
+      5.35
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.75,
+     "phase": "jump",
+     "jump_progress": 1.0,
+     "anim_time": 1.0,
+     "local_position_unity": [
+      -0.3,
+      0.25,
+      -11.35
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.25,
+      -11.35
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.25,
+      11.35
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    }
+   ]
+  },
+  {
+   "name": "top-row note alone: rises from row 0 (0.25 m) to Noodle's 1.908333 m peak",
+   "input": {
+    "x": 2,
+    "y": 2,
+    "start_layer": 0.0
+   },
+   "spawn": {
+    "line_index": 2,
+    "line_layer": 2,
+    "start_layer": 0.0,
+    "move_offset": [
+     0.3,
+     0.25,
+     0.0
+    ],
+    "jump_end_offset": [
+     0.3,
+     0.25,
+     0.0
+    ],
+    "gravity_base": 1.658333,
+    "note_offset": [
+     0.3,
+     1.908333,
+     0.0
+    ]
+   },
+   "samples": [
+    {
+     "song_time": 9.0,
+     "phase": "move-in",
+     "jump_progress": null,
+     "anim_time": -0.166667,
+     "local_position_unity": [
+      0.3,
+      0.25,
+      62.65
+     ],
+     "world_position_unity": [
+      0.3,
+      0.25,
+      62.65
+     ],
+     "world_position_godot": [
+      0.3,
+      0.25,
+      -62.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.25,
+     "phase": "jump",
+     "jump_progress": 0.0,
+     "anim_time": 0.0,
+     "local_position_unity": [
+      0.3,
+      0.25,
+      12.65
+     ],
+     "world_position_unity": [
+      0.3,
+      0.25,
+      12.65
+     ],
+     "world_position_godot": [
+      0.3,
+      0.25,
+      -12.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.4375,
+     "phase": "jump",
+     "jump_progress": 0.125,
+     "anim_time": 0.125,
+     "local_position_unity": [
+      0.3,
+      0.975521,
+      9.65
+     ],
+     "world_position_unity": [
+      0.3,
+      0.975521,
+      9.65
+     ],
+     "world_position_godot": [
+      0.3,
+      0.975521,
+      -9.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.625,
+     "phase": "jump",
+     "jump_progress": 0.25,
+     "anim_time": 0.25,
+     "local_position_unity": [
+      0.3,
+      1.49375,
+      6.65
+     ],
+     "world_position_unity": [
+      0.3,
+      1.49375,
+      6.65
+     ],
+     "world_position_godot": [
+      0.3,
+      1.49375,
+      -6.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.0,
+     "phase": "jump",
+     "jump_progress": 0.5,
+     "anim_time": 0.5,
+     "local_position_unity": [
+      0.3,
+      1.908333,
+      0.65
+     ],
+     "world_position_unity": [
+      0.3,
+      1.908333,
+      0.65
+     ],
+     "world_position_godot": [
+      0.3,
+      1.908333,
+      -0.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.375,
+     "phase": "jump",
+     "jump_progress": 0.75,
+     "anim_time": 0.75,
+     "local_position_unity": [
+      0.3,
+      1.49375,
+      -5.35
+     ],
+     "world_position_unity": [
+      0.3,
+      1.49375,
+      -5.35
+     ],
+     "world_position_godot": [
+      0.3,
+      1.49375,
+      5.35
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.75,
+     "phase": "jump",
+     "jump_progress": 1.0,
+     "anim_time": 1.0,
+     "local_position_unity": [
+      0.3,
+      0.25,
+      -11.35
+     ],
+     "world_position_unity": [
+      0.3,
+      0.25,
+      -11.35
+     ],
+     "world_position_godot": [
+      0.3,
+      0.25,
+      11.35
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    }
+   ]
+  },
+  {
+   "name": "coordinates [-1.25, 0.5]: lineIndex 0.75, layer 0.5, start layer 0",
+   "input": {
+    "x": 0.0,
+    "y": 0.0,
+    "coordinates": [
+     -1.25,
+     0.5
+    ],
+    "start_layer": 0.0
+   },
+   "spawn": {
+    "line_index": 0.75,
+    "line_layer": 0.5,
+    "start_layer": 0.0,
+    "move_offset": [
+     -0.45,
+     0.25,
+     0.0
+    ],
+    "jump_end_offset": [
+     -0.45,
+     0.25,
+     0.0
+    ],
+    "gravity_base": 0.870833,
+    "note_offset": [
+     -0.45,
+     1.120833,
+     0.0
+    ]
+   },
+   "samples": [
+    {
+     "song_time": 9.0,
+     "phase": "move-in",
+     "jump_progress": null,
+     "anim_time": -0.166667,
+     "local_position_unity": [
+      -0.45,
+      0.25,
+      62.65
+     ],
+     "world_position_unity": [
+      -0.45,
+      0.25,
+      62.65
+     ],
+     "world_position_godot": [
+      -0.45,
+      0.25,
+      -62.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.25,
+     "phase": "jump",
+     "jump_progress": 0.0,
+     "anim_time": 0.0,
+     "local_position_unity": [
+      -0.45,
+      0.25,
+      12.65
+     ],
+     "world_position_unity": [
+      -0.45,
+      0.25,
+      12.65
+     ],
+     "world_position_godot": [
+      -0.45,
+      0.25,
+      -12.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.4375,
+     "phase": "jump",
+     "jump_progress": 0.125,
+     "anim_time": 0.125,
+     "local_position_unity": [
+      -0.45,
+      0.630989,
+      9.65
+     ],
+     "world_position_unity": [
+      -0.45,
+      0.630989,
+      9.65
+     ],
+     "world_position_godot": [
+      -0.45,
+      0.630989,
+      -9.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.625,
+     "phase": "jump",
+     "jump_progress": 0.25,
+     "anim_time": 0.25,
+     "local_position_unity": [
+      -0.45,
+      0.903125,
+      6.65
+     ],
+     "world_position_unity": [
+      -0.45,
+      0.903125,
+      6.65
+     ],
+     "world_position_godot": [
+      -0.45,
+      0.903125,
+      -6.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.0,
+     "phase": "jump",
+     "jump_progress": 0.5,
+     "anim_time": 0.5,
+     "local_position_unity": [
+      -0.45,
+      1.120833,
+      0.65
+     ],
+     "world_position_unity": [
+      -0.45,
+      1.120833,
+      0.65
+     ],
+     "world_position_godot": [
+      -0.45,
+      1.120833,
+      -0.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.375,
+     "phase": "jump",
+     "jump_progress": 0.75,
+     "anim_time": 0.75,
+     "local_position_unity": [
+      -0.45,
+      0.903125,
+      -5.35
+     ],
+     "world_position_unity": [
+      -0.45,
+      0.903125,
+      -5.35
+     ],
+     "world_position_godot": [
+      -0.45,
+      0.903125,
+      5.35
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.75,
+     "phase": "jump",
+     "jump_progress": 1.0,
+     "anim_time": 1.0,
+     "local_position_unity": [
+      -0.45,
+      0.25,
+      -11.35
+     ],
+     "world_position_unity": [
+      -0.45,
+      0.25,
+      -11.35
+     ],
+     "world_position_godot": [
+      -0.45,
+      0.25,
+      11.35
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    }
+   ]
+  },
+  {
+   "name": "coordinates [null, 1]: x from the vanilla lane 3",
+   "input": {
+    "x": 3,
+    "y": 0.0,
+    "coordinates": [
+     null,
+     1
+    ],
+    "start_layer": 0.0
+   },
+   "spawn": {
+    "line_index": 3,
+    "line_layer": 1,
+    "start_layer": 0.0,
+    "move_offset": [
+     0.9,
+     0.25,
+     0.0
+    ],
+    "jump_end_offset": [
+     0.9,
+     0.25,
+     0.0
+    ],
+    "gravity_base": 1.133333,
+    "note_offset": [
+     0.9,
+     1.383333,
+     0.0
+    ]
+   },
+   "samples": [
+    {
+     "song_time": 9.0,
+     "phase": "move-in",
+     "jump_progress": null,
+     "anim_time": -0.166667,
+     "local_position_unity": [
+      0.9,
+      0.25,
+      62.65
+     ],
+     "world_position_unity": [
+      0.9,
+      0.25,
+      62.65
+     ],
+     "world_position_godot": [
+      0.9,
+      0.25,
+      -62.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.25,
+     "phase": "jump",
+     "jump_progress": 0.0,
+     "anim_time": 0.0,
+     "local_position_unity": [
+      0.9,
+      0.25,
+      12.65
+     ],
+     "world_position_unity": [
+      0.9,
+      0.25,
+      12.65
+     ],
+     "world_position_godot": [
+      0.9,
+      0.25,
+      -12.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.4375,
+     "phase": "jump",
+     "jump_progress": 0.125,
+     "anim_time": 0.125,
+     "local_position_unity": [
+      0.9,
+      0.745833,
+      9.65
+     ],
+     "world_position_unity": [
+      0.9,
+      0.745833,
+      9.65
+     ],
+     "world_position_godot": [
+      0.9,
+      0.745833,
+      -9.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.625,
+     "phase": "jump",
+     "jump_progress": 0.25,
+     "anim_time": 0.25,
+     "local_position_unity": [
+      0.9,
+      1.1,
+      6.65
+     ],
+     "world_position_unity": [
+      0.9,
+      1.1,
+      6.65
+     ],
+     "world_position_godot": [
+      0.9,
+      1.1,
+      -6.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.0,
+     "phase": "jump",
+     "jump_progress": 0.5,
+     "anim_time": 0.5,
+     "local_position_unity": [
+      0.9,
+      1.383333,
+      0.65
+     ],
+     "world_position_unity": [
+      0.9,
+      1.383333,
+      0.65
+     ],
+     "world_position_godot": [
+      0.9,
+      1.383333,
+      -0.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.375,
+     "phase": "jump",
+     "jump_progress": 0.75,
+     "anim_time": 0.75,
+     "local_position_unity": [
+      0.9,
+      1.1,
+      -5.35
+     ],
+     "world_position_unity": [
+      0.9,
+      1.1,
+      -5.35
+     ],
+     "world_position_godot": [
+      0.9,
+      1.1,
+      5.35
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.75,
+     "phase": "jump",
+     "jump_progress": 1.0,
+     "anim_time": 1.0,
+     "local_position_unity": [
+      0.9,
+      0.25,
+      -11.35
+     ],
+     "world_position_unity": [
+      0.9,
+      0.25,
+      -11.35
+     ],
+     "world_position_godot": [
+      0.9,
+      0.25,
+      11.35
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    }
+   ]
+  },
+  {
+   "name": "disableNoteGravity on a top-row note: starts at its own row height, still rises 0.458 m",
+   "input": {
+    "x": 2,
+    "y": 2,
+    "start_layer": 0.0,
+    "disableNoteGravity": true
+   },
+   "spawn": {
+    "line_index": 2,
+    "line_layer": 2,
+    "start_layer": 0.0,
+    "move_offset": [
+     0.3,
+     1.45,
+     0.0
+    ],
+    "jump_end_offset": [
+     0.3,
+     0.25,
+     0.0
+    ],
+    "gravity_base": 0.458333,
+    "note_offset": [
+     0.3,
+     1.908333,
+     0.0
+    ]
+   },
+   "samples": [
+    {
+     "song_time": 9.0,
+     "phase": "move-in",
+     "jump_progress": null,
+     "anim_time": -0.166667,
+     "local_position_unity": [
+      0.3,
+      1.45,
+      62.65
+     ],
+     "world_position_unity": [
+      0.3,
+      1.45,
+      62.65
+     ],
+     "world_position_godot": [
+      0.3,
+      1.45,
+      -62.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.25,
+     "phase": "jump",
+     "jump_progress": 0.0,
+     "anim_time": 0.0,
+     "local_position_unity": [
+      0.3,
+      1.45,
+      12.65
+     ],
+     "world_position_unity": [
+      0.3,
+      1.45,
+      12.65
+     ],
+     "world_position_godot": [
+      0.3,
+      1.45,
+      -12.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.4375,
+     "phase": "jump",
+     "jump_progress": 0.125,
+     "anim_time": 0.125,
+     "local_position_unity": [
+      0.3,
+      1.650521,
+      9.65
+     ],
+     "world_position_unity": [
+      0.3,
+      1.650521,
+      9.65
+     ],
+     "world_position_godot": [
+      0.3,
+      1.650521,
+      -9.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.625,
+     "phase": "jump",
+     "jump_progress": 0.25,
+     "anim_time": 0.25,
+     "local_position_unity": [
+      0.3,
+      1.79375,
+      6.65
+     ],
+     "world_position_unity": [
+      0.3,
+      1.79375,
+      6.65
+     ],
+     "world_position_godot": [
+      0.3,
+      1.79375,
+      -6.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.0,
+     "phase": "jump",
+     "jump_progress": 0.5,
+     "anim_time": 0.5,
+     "local_position_unity": [
+      0.3,
+      1.908333,
+      0.65
+     ],
+     "world_position_unity": [
+      0.3,
+      1.908333,
+      0.65
+     ],
+     "world_position_godot": [
+      0.3,
+      1.908333,
+      -0.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.375,
+     "phase": "jump",
+     "jump_progress": 0.75,
+     "anim_time": 0.75,
+     "local_position_unity": [
+      0.3,
+      1.79375,
+      -5.35
+     ],
+     "world_position_unity": [
+      0.3,
+      1.79375,
+      -5.35
+     ],
+     "world_position_godot": [
+      0.3,
+      1.79375,
+      5.35
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.75,
+     "phase": "jump",
+     "jump_progress": 1.0,
+     "anim_time": 1.0,
+     "local_position_unity": [
+      0.3,
+      1.45,
+      -11.35
+     ],
+     "world_position_unity": [
+      0.3,
+      1.45,
+      -11.35
+     ],
+     "world_position_godot": [
+      0.3,
+      1.45,
+      11.35
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    }
+   ]
+  },
+  {
+   "name": "second note of a stacked column: start layer 1",
+   "input": {
+    "x": 1,
+    "y": 1,
+    "start_layer": 1
+   },
+   "spawn": {
+    "line_index": 1,
+    "line_layer": 1,
+    "start_layer": 1,
+    "move_offset": [
+     -0.3,
+     0.85,
+     0.0
+    ],
+    "jump_end_offset": [
+     -0.3,
+     0.85,
+     0.0
+    ],
+    "gravity_base": 0.533333,
+    "note_offset": [
+     -0.3,
+     1.383333,
+     0.0
+    ]
+   },
+   "samples": [
+    {
+     "song_time": 9.0,
+     "phase": "move-in",
+     "jump_progress": null,
+     "anim_time": -0.166667,
+     "local_position_unity": [
+      -0.3,
+      0.85,
+      62.65
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.85,
+      62.65
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.85,
+      -62.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.25,
+     "phase": "jump",
+     "jump_progress": 0.0,
+     "anim_time": 0.0,
+     "local_position_unity": [
+      -0.3,
+      0.85,
+      12.65
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.85,
+      12.65
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.85,
+      -12.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.4375,
+     "phase": "jump",
+     "jump_progress": 0.125,
+     "anim_time": 0.125,
+     "local_position_unity": [
+      -0.3,
+      1.083333,
+      9.65
+     ],
+     "world_position_unity": [
+      -0.3,
+      1.083333,
+      9.65
+     ],
+     "world_position_godot": [
+      -0.3,
+      1.083333,
+      -9.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.625,
+     "phase": "jump",
+     "jump_progress": 0.25,
+     "anim_time": 0.25,
+     "local_position_unity": [
+      -0.3,
+      1.25,
+      6.65
+     ],
+     "world_position_unity": [
+      -0.3,
+      1.25,
+      6.65
+     ],
+     "world_position_godot": [
+      -0.3,
+      1.25,
+      -6.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.0,
+     "phase": "jump",
+     "jump_progress": 0.5,
+     "anim_time": 0.5,
+     "local_position_unity": [
+      -0.3,
+      1.383333,
+      0.65
+     ],
+     "world_position_unity": [
+      -0.3,
+      1.383333,
+      0.65
+     ],
+     "world_position_godot": [
+      -0.3,
+      1.383333,
+      -0.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.375,
+     "phase": "jump",
+     "jump_progress": 0.75,
+     "anim_time": 0.75,
+     "local_position_unity": [
+      -0.3,
+      1.25,
+      -5.35
+     ],
+     "world_position_unity": [
+      -0.3,
+      1.25,
+      -5.35
+     ],
+     "world_position_godot": [
+      -0.3,
+      1.25,
+      5.35
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.75,
+     "phase": "jump",
+     "jump_progress": 1.0,
+     "anim_time": 1.0,
+     "local_position_unity": [
+      -0.3,
+      0.85,
+      -11.35
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.85,
+      -11.35
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.85,
+      11.35
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    }
+   ]
+  },
+  {
+   "name": "vanilla crossover flip: colour-0 note in lane 3 starts at lane 0 (flipYSide +1)",
+   "input": {
+    "x": 3,
+    "y": 0.0,
+    "start_layer": 0.0,
+    "flip_line_index": 0.0,
+    "flip_y_side": 1
+   },
+   "spawn": {
+    "line_index": 3,
+    "line_layer": 0.0,
+    "start_layer": 0.0,
+    "move_offset": [
+     -0.9,
+     0.25,
+     0.0
+    ],
+    "jump_end_offset": [
+     0.9,
+     0.25,
+     0.0
+    ],
+    "gravity_base": 0.608333,
+    "note_offset": [
+     0.9,
+     0.858333,
+     0.0
+    ]
+   },
+   "samples": [
+    {
+     "song_time": 9.0,
+     "phase": "move-in",
+     "jump_progress": null,
+     "anim_time": -0.166667,
+     "local_position_unity": [
+      -0.9,
+      0.25,
+      62.65
+     ],
+     "world_position_unity": [
+      -0.9,
+      0.25,
+      62.65
+     ],
+     "world_position_godot": [
+      -0.9,
+      0.25,
+      -62.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.25,
+     "phase": "jump",
+     "jump_progress": 0.0,
+     "anim_time": 0.0,
+     "local_position_unity": [
+      -0.9,
+      0.25,
+      12.65
+     ],
+     "world_position_unity": [
+      -0.9,
+      0.25,
+      12.65
+     ],
+     "world_position_godot": [
+      -0.9,
+      0.25,
+      -12.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.4375,
+     "phase": "jump",
+     "jump_progress": 0.125,
+     "anim_time": 0.125,
+     "local_position_unity": [
+      0.0,
+      0.966146,
+      9.65
+     ],
+     "world_position_unity": [
+      0.0,
+      0.966146,
+      9.65
+     ],
+     "world_position_godot": [
+      0.0,
+      0.966146,
+      -9.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.625,
+     "phase": "jump",
+     "jump_progress": 0.25,
+     "anim_time": 0.25,
+     "local_position_unity": [
+      0.9,
+      0.70625,
+      6.65
+     ],
+     "world_position_unity": [
+      0.9,
+      0.70625,
+      6.65
+     ],
+     "world_position_godot": [
+      0.9,
+      0.70625,
+      -6.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.0,
+     "phase": "jump",
+     "jump_progress": 0.5,
+     "anim_time": 0.5,
+     "local_position_unity": [
+      0.9,
+      0.858333,
+      0.65
+     ],
+     "world_position_unity": [
+      0.9,
+      0.858333,
+      0.65
+     ],
+     "world_position_godot": [
+      0.9,
+      0.858333,
+      -0.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.375,
+     "phase": "jump",
+     "jump_progress": 0.75,
+     "anim_time": 0.75,
+     "local_position_unity": [
+      0.9,
+      0.70625,
+      -5.35
+     ],
+     "world_position_unity": [
+      0.9,
+      0.70625,
+      -5.35
+     ],
+     "world_position_godot": [
+      0.9,
+      0.70625,
+      5.35
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.75,
+     "phase": "jump",
+     "jump_progress": 1.0,
+     "anim_time": 1.0,
+     "local_position_unity": [
+      0.9,
+      0.25,
+      -11.35
+     ],
+     "world_position_unity": [
+      0.9,
+      0.25,
+      -11.35
+     ],
+     "world_position_godot": [
+      0.9,
+      0.25,
+      11.35
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    }
+   ]
+  },
+  {
+   "name": "flip [-1, -1]: starts at lineIndex 1 and dips by 0.15 m * bump (reconstruction)",
+   "input": {
+    "x": 3,
+    "y": 1,
+    "start_layer": 0.0,
+    "flip": [
+     -1,
+     -1
+    ],
+    "flip_line_index": 1,
+    "flip_y_side": -1
+   },
+   "spawn": {
+    "line_index": 3,
+    "line_layer": 1,
+    "start_layer": 0.0,
+    "move_offset": [
+     -0.3,
+     0.25,
+     0.0
+    ],
+    "jump_end_offset": [
+     0.9,
+     0.25,
+     0.0
+    ],
+    "gravity_base": 1.133333,
+    "note_offset": [
+     0.9,
+     1.383333,
+     0.0
+    ]
+   },
+   "samples": [
+    {
+     "song_time": 9.0,
+     "phase": "move-in",
+     "jump_progress": null,
+     "anim_time": -0.166667,
+     "local_position_unity": [
+      -0.3,
+      0.25,
+      62.65
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.25,
+      62.65
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.25,
+      -62.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.25,
+     "phase": "jump",
+     "jump_progress": 0.0,
+     "anim_time": 0.0,
+     "local_position_unity": [
+      -0.3,
+      0.25,
+      12.65
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.25,
+      12.65
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.25,
+      -12.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.4375,
+     "phase": "jump",
+     "jump_progress": 0.125,
+     "anim_time": 0.125,
+     "local_position_unity": [
+      0.3,
+      0.595833,
+      9.65
+     ],
+     "world_position_unity": [
+      0.3,
+      0.595833,
+      9.65
+     ],
+     "world_position_godot": [
+      0.3,
+      0.595833,
+      -9.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.625,
+     "phase": "jump",
+     "jump_progress": 0.25,
+     "anim_time": 0.25,
+     "local_position_unity": [
+      0.9,
+      1.1,
+      6.65
+     ],
+     "world_position_unity": [
+      0.9,
+      1.1,
+      6.65
+     ],
+     "world_position_godot": [
+      0.9,
+      1.1,
+      -6.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.0,
+     "phase": "jump",
+     "jump_progress": 0.5,
+     "anim_time": 0.5,
+     "local_position_unity": [
+      0.9,
+      1.383333,
+      0.65
+     ],
+     "world_position_unity": [
+      0.9,
+      1.383333,
+      0.65
+     ],
+     "world_position_godot": [
+      0.9,
+      1.383333,
+      -0.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.375,
+     "phase": "jump",
+     "jump_progress": 0.75,
+     "anim_time": 0.75,
+     "local_position_unity": [
+      0.9,
+      1.1,
+      -5.35
+     ],
+     "world_position_unity": [
+      0.9,
+      1.1,
+      -5.35
+     ],
+     "world_position_godot": [
+      0.9,
+      1.1,
+      5.35
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.75,
+     "phase": "jump",
+     "jump_progress": 1.0,
+     "anim_time": 1.0,
+     "local_position_unity": [
+      0.9,
+      0.25,
+      -11.35
+     ],
+     "world_position_unity": [
+      0.9,
+      0.25,
+      -11.35
+     ],
+     "world_position_godot": [
+      0.9,
+      0.25,
+      11.35
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    }
+   ]
+  },
+  {
+   "name": "bomb: flip ignored, start layer used",
+   "input": {
+    "x": 0.0,
+    "y": 1,
+    "start_layer": 0.0,
+    "bomb": true
+   },
+   "spawn": {
+    "line_index": 0.0,
+    "line_layer": 1,
+    "start_layer": 0.0,
+    "move_offset": [
+     -0.9,
+     0.25,
+     0.0
+    ],
+    "jump_end_offset": [
+     -0.9,
+     0.25,
+     0.0
+    ],
+    "gravity_base": 1.133333,
+    "note_offset": [
+     -0.9,
+     1.383333,
+     0.0
+    ]
+   },
+   "samples": [
+    {
+     "song_time": 9.0,
+     "phase": "move-in",
+     "jump_progress": null,
+     "anim_time": -0.166667,
+     "local_position_unity": [
+      -0.9,
+      0.25,
+      62.65
+     ],
+     "world_position_unity": [
+      -0.9,
+      0.25,
+      62.65
+     ],
+     "world_position_godot": [
+      -0.9,
+      0.25,
+      -62.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.25,
+     "phase": "jump",
+     "jump_progress": 0.0,
+     "anim_time": 0.0,
+     "local_position_unity": [
+      -0.9,
+      0.25,
+      12.65
+     ],
+     "world_position_unity": [
+      -0.9,
+      0.25,
+      12.65
+     ],
+     "world_position_godot": [
+      -0.9,
+      0.25,
+      -12.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.4375,
+     "phase": "jump",
+     "jump_progress": 0.125,
+     "anim_time": 0.125,
+     "local_position_unity": [
+      -0.9,
+      0.745833,
+      9.65
+     ],
+     "world_position_unity": [
+      -0.9,
+      0.745833,
+      9.65
+     ],
+     "world_position_godot": [
+      -0.9,
+      0.745833,
+      -9.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.625,
+     "phase": "jump",
+     "jump_progress": 0.25,
+     "anim_time": 0.25,
+     "local_position_unity": [
+      -0.9,
+      1.1,
+      6.65
+     ],
+     "world_position_unity": [
+      -0.9,
+      1.1,
+      6.65
+     ],
+     "world_position_godot": [
+      -0.9,
+      1.1,
+      -6.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.0,
+     "phase": "jump",
+     "jump_progress": 0.5,
+     "anim_time": 0.5,
+     "local_position_unity": [
+      -0.9,
+      1.383333,
+      0.65
+     ],
+     "world_position_unity": [
+      -0.9,
+      1.383333,
+      0.65
+     ],
+     "world_position_godot": [
+      -0.9,
+      1.383333,
+      -0.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.375,
+     "phase": "jump",
+     "jump_progress": 0.75,
+     "anim_time": 0.75,
+     "local_position_unity": [
+      -0.9,
+      1.1,
+      -5.35
+     ],
+     "world_position_unity": [
+      -0.9,
+      1.1,
+      -5.35
+     ],
+     "world_position_godot": [
+      -0.9,
+      1.1,
+      5.35
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.75,
+     "phase": "jump",
+     "jump_progress": 1.0,
+     "anim_time": 1.0,
+     "local_position_unity": [
+      -0.9,
+      0.25,
+      -11.35
+     ],
+     "world_position_unity": [
+      -0.9,
+      0.25,
+      -11.35
+     ],
+     "world_position_godot": [
+      -0.9,
+      0.25,
+      11.35
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    }
+   ]
+  },
+  {
+   "name": "worldRotation [0, 90, 0]: path turned to the player's right (Unity +x)",
+   "input": {
+    "x": 1,
+    "y": 0.0,
+    "start_layer": 0.0,
+    "worldRotation": [
+     0.0,
+     90,
+     0.0
+    ]
+   },
+   "spawn": {
+    "line_index": 1,
+    "line_layer": 0.0,
+    "start_layer": 0.0,
+    "move_offset": [
+     -0.3,
+     0.25,
+     0.0
+    ],
+    "jump_end_offset": [
+     -0.3,
+     0.25,
+     0.0
+    ],
+    "gravity_base": 0.608333,
+    "note_offset": [
+     -0.3,
+     0.858333,
+     0.0
+    ]
+   },
+   "samples": [
+    {
+     "song_time": 9.0,
+     "phase": "move-in",
+     "jump_progress": null,
+     "anim_time": -0.166667,
+     "local_position_unity": [
+      -0.3,
+      0.25,
+      62.65
+     ],
+     "world_position_unity": [
+      62.65,
+      0.25,
+      0.3
+     ],
+     "world_position_godot": [
+      62.65,
+      0.25,
+      -0.3
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.707107,
+      0.0,
+      0.707107
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      -0.707107,
+      0.0,
+      0.707107
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.25,
+     "phase": "jump",
+     "jump_progress": 0.0,
+     "anim_time": 0.0,
+     "local_position_unity": [
+      -0.3,
+      0.25,
+      12.65
+     ],
+     "world_position_unity": [
+      12.65,
+      0.25,
+      0.3
+     ],
+     "world_position_godot": [
+      12.65,
+      0.25,
+      -0.3
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.707107,
+      0.0,
+      0.707107
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      -0.707107,
+      0.0,
+      0.707107
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.4375,
+     "phase": "jump",
+     "jump_progress": 0.125,
+     "anim_time": 0.125,
+     "local_position_unity": [
+      -0.3,
+      0.516146,
+      9.65
+     ],
+     "world_position_unity": [
+      9.65,
+      0.516146,
+      0.3
+     ],
+     "world_position_godot": [
+      9.65,
+      0.516146,
+      -0.3
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.707107,
+      0.0,
+      0.707107
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      -0.707107,
+      0.0,
+      0.707107
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.625,
+     "phase": "jump",
+     "jump_progress": 0.25,
+     "anim_time": 0.25,
+     "local_position_unity": [
+      -0.3,
+      0.70625,
+      6.65
+     ],
+     "world_position_unity": [
+      6.65,
+      0.70625,
+      0.3
+     ],
+     "world_position_godot": [
+      6.65,
+      0.70625,
+      -0.3
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.707107,
+      0.0,
+      0.707107
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      -0.707107,
+      0.0,
+      0.707107
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.0,
+     "phase": "jump",
+     "jump_progress": 0.5,
+     "anim_time": 0.5,
+     "local_position_unity": [
+      -0.3,
+      0.858333,
+      0.65
+     ],
+     "world_position_unity": [
+      0.65,
+      0.858333,
+      0.3
+     ],
+     "world_position_godot": [
+      0.65,
+      0.858333,
+      -0.3
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.707107,
+      0.0,
+      0.707107
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      -0.707107,
+      0.0,
+      0.707107
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.375,
+     "phase": "jump",
+     "jump_progress": 0.75,
+     "anim_time": 0.75,
+     "local_position_unity": [
+      -0.3,
+      0.70625,
+      -5.35
+     ],
+     "world_position_unity": [
+      -5.35,
+      0.70625,
+      0.3
+     ],
+     "world_position_godot": [
+      -5.35,
+      0.70625,
+      -0.3
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.707107,
+      0.0,
+      0.707107
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      -0.707107,
+      0.0,
+      0.707107
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.75,
+     "phase": "jump",
+     "jump_progress": 1.0,
+     "anim_time": 1.0,
+     "local_position_unity": [
+      -0.3,
+      0.25,
+      -11.35
+     ],
+     "world_position_unity": [
+      -11.35,
+      0.25,
+      0.3
+     ],
+     "world_position_godot": [
+      -11.35,
+      0.25,
+      -0.3
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.707107,
+      0.0,
+      0.707107
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      -0.707107,
+      0.0,
+      0.707107
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    }
+   ]
+  },
+  {
+   "name": "worldRotation [30, 45, 0] and localRotation [0, 0, 45]",
+   "input": {
+    "x": 2,
+    "y": 1,
+    "start_layer": 0.0,
+    "worldRotation": [
+     30,
+     45,
+     0.0
+    ],
+    "localRotation": [
+     0.0,
+     0.0,
+     45
+    ]
+   },
+   "spawn": {
+    "line_index": 2,
+    "line_layer": 1,
+    "start_layer": 0.0,
+    "move_offset": [
+     0.3,
+     0.25,
+     0.0
+    ],
+    "jump_end_offset": [
+     0.3,
+     0.25,
+     0.0
+    ],
+    "gravity_base": 1.133333,
+    "note_offset": [
+     0.3,
+     1.383333,
+     0.0
+    ]
+   },
+   "samples": [
+    {
+     "song_time": 9.0,
+     "phase": "move-in",
+     "jump_progress": null,
+     "anim_time": -0.166667,
+     "local_position_unity": [
+      0.3,
+      0.25,
+      62.65
+     ],
+     "world_position_unity": [
+      38.665653,
+      -31.108494,
+      38.241389
+     ],
+     "world_position_godot": [
+      38.665653,
+      -31.108494,
+      -38.241389
+     ],
+     "transform_rotation_unity": [
+      0.362372,
+      0.25,
+      0.25,
+      0.862372
+     ],
+     "transform_rotation_godot": [
+      -0.362372,
+      -0.25,
+      0.25,
+      0.862372
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.25,
+     "phase": "jump",
+     "jump_progress": 0.0,
+     "anim_time": 0.0,
+     "local_position_unity": [
+      0.3,
+      0.25,
+      12.65
+     ],
+     "world_position_unity": [
+      8.047032,
+      -6.108494,
+      7.622768
+     ],
+     "world_position_godot": [
+      8.047032,
+      -6.108494,
+      -7.622768
+     ],
+     "transform_rotation_unity": [
+      0.362372,
+      0.25,
+      0.25,
+      0.862372
+     ],
+     "transform_rotation_godot": [
+      -0.362372,
+      -0.25,
+      0.25,
+      0.862372
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.4375,
+     "phase": "jump",
+     "jump_progress": 0.125,
+     "anim_time": 0.125,
+     "local_position_unity": [
+      0.3,
+      0.745833,
+      9.65
+     ],
+     "world_position_unity": [
+      6.385218,
+      -4.17909,
+      5.960954
+     ],
+     "world_position_godot": [
+      6.385218,
+      -4.17909,
+      -5.960954
+     ],
+     "transform_rotation_unity": [
+      0.362372,
+      0.25,
+      0.25,
+      0.862372
+     ],
+     "transform_rotation_godot": [
+      -0.362372,
+      -0.25,
+      0.25,
+      0.862372
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.625,
+     "phase": "jump",
+     "jump_progress": 0.25,
+     "anim_time": 0.25,
+     "local_position_unity": [
+      0.3,
+      1.1,
+      6.65
+     ],
+     "world_position_unity": [
+      4.673317,
+      -2.372372,
+      4.249053
+     ],
+     "world_position_godot": [
+      4.673317,
+      -2.372372,
+      -4.249053
+     ],
+     "transform_rotation_unity": [
+      0.362372,
+      0.25,
+      0.25,
+      0.862372
+     ],
+     "transform_rotation_godot": [
+      -0.362372,
+      -0.25,
+      0.25,
+      0.862372
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.0,
+     "phase": "jump",
+     "jump_progress": 0.5,
+     "anim_time": 0.5,
+     "local_position_unity": [
+      0.3,
+      1.383333,
+      0.65
+     ],
+     "world_position_unity": [
+      1.099256,
+      0.873002,
+      0.674992
+     ],
+     "world_position_godot": [
+      1.099256,
+      0.873002,
+      -0.674992
+     ],
+     "transform_rotation_unity": [
+      0.362372,
+      0.25,
+      0.25,
+      0.862372
+     ],
+     "transform_rotation_godot": [
+      -0.362372,
+      -0.25,
+      0.25,
+      0.862372
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.375,
+     "phase": "jump",
+     "jump_progress": 0.75,
+     "anim_time": 0.75,
+     "local_position_unity": [
+      0.3,
+      1.1,
+      -5.35
+     ],
+     "world_position_unity": [
+      -2.675152,
+      3.627628,
+      -3.099416
+     ],
+     "world_position_godot": [
+      -2.675152,
+      3.627628,
+      3.099416
+     ],
+     "transform_rotation_unity": [
+      0.362372,
+      0.25,
+      0.25,
+      0.862372
+     ],
+     "transform_rotation_godot": [
+      -0.362372,
+      -0.25,
+      0.25,
+      0.862372
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.75,
+     "phase": "jump",
+     "jump_progress": 1.0,
+     "anim_time": 1.0,
+     "local_position_unity": [
+      0.3,
+      0.25,
+      -11.35
+     ],
+     "world_position_unity": [
+      -6.649907,
+      5.891506,
+      -7.074171
+     ],
+     "world_position_godot": [
+      -6.649907,
+      5.891506,
+      7.074171
+     ],
+     "transform_rotation_unity": [
+      0.362372,
+      0.25,
+      0.25,
+      0.862372
+     ],
+     "transform_rotation_godot": [
+      -0.362372,
+      -0.25,
+      0.25,
+      0.862372
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    }
+   ]
+  },
+  {
+   "name": "lane rotation 15 (rotation event) with localRotation [0, 0, 90]",
+   "input": {
+    "x": 1,
+    "y": 0.0,
+    "start_layer": 0.0,
+    "lane": 15,
+    "localRotation": [
+     0.0,
+     0.0,
+     90
+    ]
+   },
+   "spawn": {
+    "line_index": 1,
+    "line_layer": 0.0,
+    "start_layer": 0.0,
+    "move_offset": [
+     -0.3,
+     0.25,
+     0.0
+    ],
+    "jump_end_offset": [
+     -0.3,
+     0.25,
+     0.0
+    ],
+    "gravity_base": 0.608333,
+    "note_offset": [
+     -0.3,
+     0.858333,
+     0.0
+    ]
+   },
+   "samples": [
+    {
+     "song_time": 9.0,
+     "phase": "move-in",
+     "jump_progress": null,
+     "anim_time": -0.166667,
+     "local_position_unity": [
+      -0.3,
+      0.25,
+      62.65
+     ],
+     "world_position_unity": [
+      15.925235,
+      0.25,
+      60.592899
+     ],
+     "world_position_godot": [
+      15.925235,
+      0.25,
+      -60.592899
+     ],
+     "transform_rotation_unity": [
+      0.092296,
+      0.092296,
+      0.701057,
+      0.701057
+     ],
+     "transform_rotation_godot": [
+      -0.092296,
+      -0.092296,
+      0.701057,
+      0.701057
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.25,
+     "phase": "jump",
+     "jump_progress": 0.0,
+     "anim_time": 0.0,
+     "local_position_unity": [
+      -0.3,
+      0.25,
+      12.65
+     ],
+     "world_position_unity": [
+      2.984283,
+      0.25,
+      12.296607
+     ],
+     "world_position_godot": [
+      2.984283,
+      0.25,
+      -12.296607
+     ],
+     "transform_rotation_unity": [
+      0.092296,
+      0.092296,
+      0.701057,
+      0.701057
+     ],
+     "transform_rotation_godot": [
+      -0.092296,
+      -0.092296,
+      0.701057,
+      0.701057
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.4375,
+     "phase": "jump",
+     "jump_progress": 0.125,
+     "anim_time": 0.125,
+     "local_position_unity": [
+      -0.3,
+      0.516146,
+      9.65
+     ],
+     "world_position_unity": [
+      2.207826,
+      0.516146,
+      9.39883
+     ],
+     "world_position_godot": [
+      2.207826,
+      0.516146,
+      -9.39883
+     ],
+     "transform_rotation_unity": [
+      0.092296,
+      0.092296,
+      0.701057,
+      0.701057
+     ],
+     "transform_rotation_godot": [
+      -0.092296,
+      -0.092296,
+      0.701057,
+      0.701057
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.625,
+     "phase": "jump",
+     "jump_progress": 0.25,
+     "anim_time": 0.25,
+     "local_position_unity": [
+      -0.3,
+      0.70625,
+      6.65
+     ],
+     "world_position_unity": [
+      1.431369,
+      0.70625,
+      6.501052
+     ],
+     "world_position_godot": [
+      1.431369,
+      0.70625,
+      -6.501052
+     ],
+     "transform_rotation_unity": [
+      0.092296,
+      0.092296,
+      0.701057,
+      0.701057
+     ],
+     "transform_rotation_godot": [
+      -0.092296,
+      -0.092296,
+      0.701057,
+      0.701057
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.0,
+     "phase": "jump",
+     "jump_progress": 0.5,
+     "anim_time": 0.5,
+     "local_position_unity": [
+      -0.3,
+      0.858333,
+      0.65
+     ],
+     "world_position_unity": [
+      -0.121545,
+      0.858333,
+      0.705498
+     ],
+     "world_position_godot": [
+      -0.121545,
+      0.858333,
+      -0.705498
+     ],
+     "transform_rotation_unity": [
+      0.092296,
+      0.092296,
+      0.701057,
+      0.701057
+     ],
+     "transform_rotation_godot": [
+      -0.092296,
+      -0.092296,
+      0.701057,
+      0.701057
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.375,
+     "phase": "jump",
+     "jump_progress": 0.75,
+     "anim_time": 0.75,
+     "local_position_unity": [
+      -0.3,
+      0.70625,
+      -5.35
+     ],
+     "world_position_unity": [
+      -1.67446,
+      0.70625,
+      -5.090057
+     ],
+     "world_position_godot": [
+      -1.67446,
+      0.70625,
+      5.090057
+     ],
+     "transform_rotation_unity": [
+      0.092296,
+      0.092296,
+      0.701057,
+      0.701057
+     ],
+     "transform_rotation_godot": [
+      -0.092296,
+      -0.092296,
+      0.701057,
+      0.701057
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.75,
+     "phase": "jump",
+     "jump_progress": 1.0,
+     "anim_time": 1.0,
+     "local_position_unity": [
+      -0.3,
+      0.25,
+      -11.35
+     ],
+     "world_position_unity": [
+      -3.227374,
+      0.25,
+      -10.885612
+     ],
+     "world_position_godot": [
+      -3.227374,
+      0.25,
+      10.885612
+     ],
+     "transform_rotation_unity": [
+      0.092296,
+      0.092296,
+      0.701057,
+      0.701057
+     ],
+     "transform_rotation_godot": [
+      -0.092296,
+      -0.092296,
+      0.701057,
+      0.701057
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    }
+   ]
+  },
+  {
+   "name": "v3 scale [2, 1, 0.5]",
+   "input": {
+    "x": 1,
+    "y": 0.0,
+    "start_layer": 0.0,
+    "scale": [
+     2,
+     1,
+     0.5
+    ]
+   },
+   "spawn": {
+    "line_index": 1,
+    "line_layer": 0.0,
+    "start_layer": 0.0,
+    "move_offset": [
+     -0.3,
+     0.25,
+     0.0
+    ],
+    "jump_end_offset": [
+     -0.3,
+     0.25,
+     0.0
+    ],
+    "gravity_base": 0.608333,
+    "note_offset": [
+     -0.3,
+     0.858333,
+     0.0
+    ]
+   },
+   "samples": [
+    {
+     "song_time": 9.0,
+     "phase": "move-in",
+     "jump_progress": null,
+     "anim_time": -0.166667,
+     "local_position_unity": [
+      -0.3,
+      0.25,
+      62.65
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.25,
+      62.65
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.25,
+      -62.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      2.0,
+      1.0,
+      0.5
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.25,
+     "phase": "jump",
+     "jump_progress": 0.0,
+     "anim_time": 0.0,
+     "local_position_unity": [
+      -0.3,
+      0.25,
+      12.65
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.25,
+      12.65
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.25,
+      -12.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      2.0,
+      1.0,
+      0.5
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.4375,
+     "phase": "jump",
+     "jump_progress": 0.125,
+     "anim_time": 0.125,
+     "local_position_unity": [
+      -0.3,
+      0.516146,
+      9.65
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.516146,
+      9.65
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.516146,
+      -9.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      2.0,
+      1.0,
+      0.5
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.625,
+     "phase": "jump",
+     "jump_progress": 0.25,
+     "anim_time": 0.25,
+     "local_position_unity": [
+      -0.3,
+      0.70625,
+      6.65
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.70625,
+      6.65
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.70625,
+      -6.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      2.0,
+      1.0,
+      0.5
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.0,
+     "phase": "jump",
+     "jump_progress": 0.5,
+     "anim_time": 0.5,
+     "local_position_unity": [
+      -0.3,
+      0.858333,
+      0.65
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.858333,
+      0.65
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.858333,
+      -0.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      2.0,
+      1.0,
+      0.5
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.375,
+     "phase": "jump",
+     "jump_progress": 0.75,
+     "anim_time": 0.75,
+     "local_position_unity": [
+      -0.3,
+      0.70625,
+      -5.35
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.70625,
+      -5.35
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.70625,
+      5.35
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      2.0,
+      1.0,
+      0.5
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.75,
+     "phase": "jump",
+     "jump_progress": 1.0,
+     "anim_time": 1.0,
+     "local_position_unity": [
+      -0.3,
+      0.25,
+      -11.35
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.25,
+      -11.35
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.25,
+      11.35
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      2.0,
+      1.0,
+      0.5
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    }
+   ]
+  },
+  {
+   "name": "animation offsetPosition [[0,0,0,0],[0,2,0,0.5,easeInOutQuad],[0,0,0,1]] (lanes)",
+   "input": {
+    "x": 1,
+    "y": 0.0,
+    "start_layer": 0.0,
+    "animation": {
+     "offsetPosition": [
+      [
+       0.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       2,
+       0.0,
+       0.5,
+       "easeInOutQuad"
+      ],
+      [
+       0.0,
+       0.0,
+       0.0,
+       1
+      ]
+     ]
+    }
+   },
+   "spawn": {
+    "line_index": 1,
+    "line_layer": 0.0,
+    "start_layer": 0.0,
+    "move_offset": [
+     -0.3,
+     0.25,
+     0.0
+    ],
+    "jump_end_offset": [
+     -0.3,
+     0.25,
+     0.0
+    ],
+    "gravity_base": 0.608333,
+    "note_offset": [
+     -0.3,
+     0.858333,
+     0.0
+    ]
+   },
+   "samples": [
+    {
+     "song_time": 9.0,
+     "phase": "move-in",
+     "jump_progress": null,
+     "anim_time": -0.166667,
+     "local_position_unity": [
+      -0.3,
+      0.25,
+      62.65
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.25,
+      62.65
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.25,
+      -62.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.25,
+     "phase": "jump",
+     "jump_progress": 0.0,
+     "anim_time": 0.0,
+     "local_position_unity": [
+      -0.3,
+      0.25,
+      12.65
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.25,
+      12.65
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.25,
+      -12.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.4375,
+     "phase": "jump",
+     "jump_progress": 0.125,
+     "anim_time": 0.125,
+     "local_position_unity": [
+      -0.3,
+      0.666146,
+      9.65
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.666146,
+      9.65
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.666146,
+      -9.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.625,
+     "phase": "jump",
+     "jump_progress": 0.25,
+     "anim_time": 0.25,
+     "local_position_unity": [
+      -0.3,
+      1.30625,
+      6.65
+     ],
+     "world_position_unity": [
+      -0.3,
+      1.30625,
+      6.65
+     ],
+     "world_position_godot": [
+      -0.3,
+      1.30625,
+      -6.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.0,
+     "phase": "jump",
+     "jump_progress": 0.5,
+     "anim_time": 0.5,
+     "local_position_unity": [
+      -0.3,
+      2.058333,
+      0.65
+     ],
+     "world_position_unity": [
+      -0.3,
+      2.058333,
+      0.65
+     ],
+     "world_position_godot": [
+      -0.3,
+      2.058333,
+      -0.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.375,
+     "phase": "jump",
+     "jump_progress": 0.75,
+     "anim_time": 0.75,
+     "local_position_unity": [
+      -0.3,
+      1.30625,
+      -5.35
+     ],
+     "world_position_unity": [
+      -0.3,
+      1.30625,
+      -5.35
+     ],
+     "world_position_godot": [
+      -0.3,
+      1.30625,
+      5.35
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.75,
+     "phase": "jump",
+     "jump_progress": 1.0,
+     "anim_time": 1.0,
+     "local_position_unity": [
+      -0.3,
+      0.25,
+      -11.35
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.25,
+      -11.35
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.25,
+      11.35
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    }
+   ]
+  },
+  {
+   "name": "path offsetWorldRotation [[0,-30,0,0],[0,0,0,0.5]]: path swings in from the left",
+   "input": {
+    "x": 1,
+    "y": 0.0,
+    "start_layer": 0.0,
+    "animation": {
+     "offsetWorldRotation": [
+      [
+       0.0,
+       -30,
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0,
+       0.0,
+       0.5
+      ]
+     ]
+    }
+   },
+   "spawn": {
+    "line_index": 1,
+    "line_layer": 0.0,
+    "start_layer": 0.0,
+    "move_offset": [
+     -0.3,
+     0.25,
+     0.0
+    ],
+    "jump_end_offset": [
+     -0.3,
+     0.25,
+     0.0
+    ],
+    "gravity_base": 0.608333,
+    "note_offset": [
+     -0.3,
+     0.858333,
+     0.0
+    ]
+   },
+   "samples": [
+    {
+     "song_time": 9.0,
+     "phase": "move-in",
+     "jump_progress": null,
+     "anim_time": -0.166667,
+     "local_position_unity": [
+      -0.3,
+      0.25,
+      62.65
+     ],
+     "world_position_unity": [
+      -31.584808,
+      0.25,
+      54.106492
+     ],
+     "world_position_godot": [
+      -31.584808,
+      0.25,
+      -54.106492
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      -0.258819,
+      0.0,
+      0.965926
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.258819,
+      0.0,
+      0.965926
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.25,
+     "phase": "jump",
+     "jump_progress": 0.0,
+     "anim_time": 0.0,
+     "local_position_unity": [
+      -0.3,
+      0.25,
+      12.65
+     ],
+     "world_position_unity": [
+      -6.584808,
+      0.25,
+      10.805221
+     ],
+     "world_position_godot": [
+      -6.584808,
+      0.25,
+      -10.805221
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      -0.258819,
+      0.0,
+      0.965926
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.258819,
+      0.0,
+      0.965926
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.4375,
+     "phase": "jump",
+     "jump_progress": 0.125,
+     "anim_time": 0.125,
+     "local_position_unity": [
+      -0.3,
+      0.516146,
+      9.65
+     ],
+     "world_position_unity": [
+      -3.970059,
+      0.516146,
+      8.800632
+     ],
+     "world_position_godot": [
+      -3.970059,
+      0.516146,
+      -8.800632
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      -0.19509,
+      0.0,
+      0.980785
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.19509,
+      0.0,
+      0.980785
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.625,
+     "phase": "jump",
+     "jump_progress": 0.25,
+     "anim_time": 0.25,
+     "local_position_unity": [
+      -0.3,
+      0.70625,
+      6.65
+     ],
+     "world_position_unity": [
+      -2.010924,
+      0.70625,
+      6.345761
+     ],
+     "world_position_godot": [
+      -2.010924,
+      0.70625,
+      -6.345761
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      -0.130526,
+      0.0,
+      0.991445
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.130526,
+      0.0,
+      0.991445
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.0,
+     "phase": "jump",
+     "jump_progress": 0.5,
+     "anim_time": 0.5,
+     "local_position_unity": [
+      -0.3,
+      0.858333,
+      0.65
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.858333,
+      0.65
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.858333,
+      -0.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.375,
+     "phase": "jump",
+     "jump_progress": 0.75,
+     "anim_time": 0.75,
+     "local_position_unity": [
+      -0.3,
+      0.70625,
+      -5.35
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.70625,
+      -5.35
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.70625,
+      5.35
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.75,
+     "phase": "jump",
+     "jump_progress": 1.0,
+     "anim_time": 1.0,
+     "local_position_unity": [
+      -0.3,
+      0.25,
+      -11.35
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.25,
+      -11.35
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.25,
+      11.35
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    }
+   ]
+  },
+  {
+   "name": "track offsetPosition [0, 0, 5] (AnimateTrack value) plus path offsetPosition [1, 0, 0]: they add",
+   "input": {
+    "x": 1,
+    "y": 0.0,
+    "start_layer": 0.0,
+    "animation": {
+     "offsetPosition": [
+      1,
+      0.0,
+      0.0
+     ]
+    },
+    "track": "T"
+   },
+   "spawn": {
+    "line_index": 1,
+    "line_layer": 0.0,
+    "start_layer": 0.0,
+    "move_offset": [
+     -0.3,
+     0.25,
+     0.0
+    ],
+    "jump_end_offset": [
+     -0.3,
+     0.25,
+     0.0
+    ],
+    "gravity_base": 0.608333,
+    "note_offset": [
+     -0.3,
+     0.858333,
+     0.0
+    ]
+   },
+   "samples": [
+    {
+     "song_time": 9.0,
+     "phase": "move-in",
+     "jump_progress": null,
+     "anim_time": -0.166667,
+     "local_position_unity": [
+      0.3,
+      0.25,
+      65.65
+     ],
+     "world_position_unity": [
+      0.3,
+      0.25,
+      65.65
+     ],
+     "world_position_godot": [
+      0.3,
+      0.25,
+      -65.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.25,
+     "phase": "jump",
+     "jump_progress": 0.0,
+     "anim_time": 0.0,
+     "local_position_unity": [
+      0.3,
+      0.25,
+      15.65
+     ],
+     "world_position_unity": [
+      0.3,
+      0.25,
+      15.65
+     ],
+     "world_position_godot": [
+      0.3,
+      0.25,
+      -15.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.4375,
+     "phase": "jump",
+     "jump_progress": 0.125,
+     "anim_time": 0.125,
+     "local_position_unity": [
+      0.3,
+      0.516146,
+      12.65
+     ],
+     "world_position_unity": [
+      0.3,
+      0.516146,
+      12.65
+     ],
+     "world_position_godot": [
+      0.3,
+      0.516146,
+      -12.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.625,
+     "phase": "jump",
+     "jump_progress": 0.25,
+     "anim_time": 0.25,
+     "local_position_unity": [
+      0.3,
+      0.70625,
+      9.65
+     ],
+     "world_position_unity": [
+      0.3,
+      0.70625,
+      9.65
+     ],
+     "world_position_godot": [
+      0.3,
+      0.70625,
+      -9.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.0,
+     "phase": "jump",
+     "jump_progress": 0.5,
+     "anim_time": 0.5,
+     "local_position_unity": [
+      0.3,
+      0.858333,
+      3.65
+     ],
+     "world_position_unity": [
+      0.3,
+      0.858333,
+      3.65
+     ],
+     "world_position_godot": [
+      0.3,
+      0.858333,
+      -3.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.375,
+     "phase": "jump",
+     "jump_progress": 0.75,
+     "anim_time": 0.75,
+     "local_position_unity": [
+      0.3,
+      0.70625,
+      -2.35
+     ],
+     "world_position_unity": [
+      0.3,
+      0.70625,
+      -2.35
+     ],
+     "world_position_godot": [
+      0.3,
+      0.70625,
+      2.35
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.75,
+     "phase": "jump",
+     "jump_progress": 1.0,
+     "anim_time": 1.0,
+     "local_position_unity": [
+      0.3,
+      0.25,
+      -8.35
+     ],
+     "world_position_unity": [
+      0.3,
+      0.25,
+      -8.35
+     ],
+     "world_position_godot": [
+      0.3,
+      0.25,
+      8.35
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    }
+   ]
+  },
+  {
+   "name": "track scale [2,2,2] times path scale [[1,1,1,0],[0.5,0.5,0.5,1]]",
+   "input": {
+    "x": 1,
+    "y": 0.0,
+    "start_layer": 0.0,
+    "animation": {
+     "scale": [
+      [
+       1,
+       1,
+       1,
+       0.0
+      ],
+      [
+       0.5,
+       0.5,
+       0.5,
+       1
+      ]
+     ]
+    },
+    "track": "T"
+   },
+   "spawn": {
+    "line_index": 1,
+    "line_layer": 0.0,
+    "start_layer": 0.0,
+    "move_offset": [
+     -0.3,
+     0.25,
+     0.0
+    ],
+    "jump_end_offset": [
+     -0.3,
+     0.25,
+     0.0
+    ],
+    "gravity_base": 0.608333,
+    "note_offset": [
+     -0.3,
+     0.858333,
+     0.0
+    ]
+   },
+   "samples": [
+    {
+     "song_time": 9.0,
+     "phase": "move-in",
+     "jump_progress": null,
+     "anim_time": -0.166667,
+     "local_position_unity": [
+      -0.3,
+      0.25,
+      62.65
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.25,
+      62.65
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.25,
+      -62.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      2.0,
+      2.0,
+      2.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.25,
+     "phase": "jump",
+     "jump_progress": 0.0,
+     "anim_time": 0.0,
+     "local_position_unity": [
+      -0.3,
+      0.25,
+      12.65
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.25,
+      12.65
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.25,
+      -12.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      2.0,
+      2.0,
+      2.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.4375,
+     "phase": "jump",
+     "jump_progress": 0.125,
+     "anim_time": 0.125,
+     "local_position_unity": [
+      -0.3,
+      0.516146,
+      9.65
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.516146,
+      9.65
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.516146,
+      -9.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.875,
+      1.875,
+      1.875
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.625,
+     "phase": "jump",
+     "jump_progress": 0.25,
+     "anim_time": 0.25,
+     "local_position_unity": [
+      -0.3,
+      0.70625,
+      6.65
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.70625,
+      6.65
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.70625,
+      -6.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.75,
+      1.75,
+      1.75
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.0,
+     "phase": "jump",
+     "jump_progress": 0.5,
+     "anim_time": 0.5,
+     "local_position_unity": [
+      -0.3,
+      0.858333,
+      0.65
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.858333,
+      0.65
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.858333,
+      -0.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.5,
+      1.5,
+      1.5
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.375,
+     "phase": "jump",
+     "jump_progress": 0.75,
+     "anim_time": 0.75,
+     "local_position_unity": [
+      -0.3,
+      0.70625,
+      -5.35
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.70625,
+      -5.35
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.70625,
+      5.35
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.25,
+      1.25,
+      1.25
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.75,
+     "phase": "jump",
+     "jump_progress": 1.0,
+     "anim_time": 1.0,
+     "local_position_unity": [
+      -0.3,
+      0.25,
+      -11.35
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.25,
+      -11.35
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.25,
+      11.35
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    }
+   ]
+  },
+  {
+   "name": "dissolve and dissolveArrow paths (Lagtrain P1 note: [[0.15,0.05],[1,0.4]] and [[1,0],[0.8,1]])",
+   "input": {
+    "x": 0.0,
+    "y": 1,
+    "start_layer": 0.0,
+    "animation": {
+     "dissolve": [
+      [
+       0.15,
+       0.05
+      ],
+      [
+       1,
+       0.4
+      ]
+     ],
+     "dissolveArrow": [
+      [
+       1,
+       0.0
+      ],
+      [
+       0.8,
+       1
+      ]
+     ]
+    }
+   },
+   "spawn": {
+    "line_index": 0.0,
+    "line_layer": 1,
+    "start_layer": 0.0,
+    "move_offset": [
+     -0.9,
+     0.25,
+     0.0
+    ],
+    "jump_end_offset": [
+     -0.9,
+     0.25,
+     0.0
+    ],
+    "gravity_base": 1.133333,
+    "note_offset": [
+     -0.9,
+     1.383333,
+     0.0
+    ]
+   },
+   "samples": [
+    {
+     "song_time": 9.0,
+     "phase": "move-in",
+     "jump_progress": null,
+     "anim_time": -0.166667,
+     "local_position_unity": [
+      -0.9,
+      0.25,
+      62.65
+     ],
+     "world_position_unity": [
+      -0.9,
+      0.25,
+      62.65
+     ],
+     "world_position_godot": [
+      -0.9,
+      0.25,
+      -62.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": 0.15,
+     "dissolveArrow": 1.0,
+     "interactable": null
+    },
+    {
+     "song_time": 9.25,
+     "phase": "jump",
+     "jump_progress": 0.0,
+     "anim_time": 0.0,
+     "local_position_unity": [
+      -0.9,
+      0.25,
+      12.65
+     ],
+     "world_position_unity": [
+      -0.9,
+      0.25,
+      12.65
+     ],
+     "world_position_godot": [
+      -0.9,
+      0.25,
+      -12.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": 0.15,
+     "dissolveArrow": 1.0,
+     "interactable": null
+    },
+    {
+     "song_time": 9.4375,
+     "phase": "jump",
+     "jump_progress": 0.125,
+     "anim_time": 0.125,
+     "local_position_unity": [
+      -0.9,
+      0.745833,
+      9.65
+     ],
+     "world_position_unity": [
+      -0.9,
+      0.745833,
+      9.65
+     ],
+     "world_position_godot": [
+      -0.9,
+      0.745833,
+      -9.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": 0.332143,
+     "dissolveArrow": 0.975,
+     "interactable": null
+    },
+    {
+     "song_time": 9.625,
+     "phase": "jump",
+     "jump_progress": 0.25,
+     "anim_time": 0.25,
+     "local_position_unity": [
+      -0.9,
+      1.1,
+      6.65
+     ],
+     "world_position_unity": [
+      -0.9,
+      1.1,
+      6.65
+     ],
+     "world_position_godot": [
+      -0.9,
+      1.1,
+      -6.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": 0.635714,
+     "dissolveArrow": 0.95,
+     "interactable": null
+    },
+    {
+     "song_time": 10.0,
+     "phase": "jump",
+     "jump_progress": 0.5,
+     "anim_time": 0.5,
+     "local_position_unity": [
+      -0.9,
+      1.383333,
+      0.65
+     ],
+     "world_position_unity": [
+      -0.9,
+      1.383333,
+      0.65
+     ],
+     "world_position_godot": [
+      -0.9,
+      1.383333,
+      -0.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": 1.0,
+     "dissolveArrow": 0.9,
+     "interactable": null
+    },
+    {
+     "song_time": 10.375,
+     "phase": "jump",
+     "jump_progress": 0.75,
+     "anim_time": 0.75,
+     "local_position_unity": [
+      -0.9,
+      1.1,
+      -5.35
+     ],
+     "world_position_unity": [
+      -0.9,
+      1.1,
+      -5.35
+     ],
+     "world_position_godot": [
+      -0.9,
+      1.1,
+      5.35
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": 1.0,
+     "dissolveArrow": 0.85,
+     "interactable": null
+    },
+    {
+     "song_time": 10.75,
+     "phase": "jump",
+     "jump_progress": 1.0,
+     "anim_time": 1.0,
+     "local_position_unity": [
+      -0.9,
+      0.25,
+      -11.35
+     ],
+     "world_position_unity": [
+      -0.9,
+      0.25,
+      -11.35
+     ],
+     "world_position_godot": [
+      -0.9,
+      0.25,
+      11.35
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": 1.0,
+     "dissolveArrow": 0.8,
+     "interactable": null
+    }
+   ]
+  },
+  {
+   "name": "definitePosition [[0,0,23,0],[0,0,0,0.5],[0,0,-23,1]] (heckdocs defPosNormal): z is absolute, 0 at the player",
+   "input": {
+    "x": 1,
+    "y": 0.0,
+    "start_layer": 0.0,
+    "animation": {
+     "definitePosition": [
+      [
+       0.0,
+       0.0,
+       23,
+       0.0
+      ],
+      [
+       0.0,
+       0.0,
+       0.0,
+       0.5
+      ],
+      [
+       0.0,
+       0.0,
+       -23,
+       1
+      ]
+     ]
+    }
+   },
+   "spawn": {
+    "line_index": 1,
+    "line_layer": 0.0,
+    "start_layer": 0.0,
+    "move_offset": [
+     -0.3,
+     0.25,
+     0.0
+    ],
+    "jump_end_offset": [
+     -0.3,
+     0.25,
+     0.0
+    ],
+    "gravity_base": 0.608333,
+    "note_offset": [
+     -0.3,
+     0.858333,
+     0.0
+    ]
+   },
+   "samples": [
+    {
+     "song_time": 9.0,
+     "phase": "move-in",
+     "jump_progress": null,
+     "anim_time": -0.166667,
+     "local_position_unity": [
+      -0.3,
+      0.858333,
+      63.8
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.858333,
+      63.8
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.858333,
+      -63.8
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.25,
+     "phase": "jump",
+     "jump_progress": 0.0,
+     "anim_time": 0.0,
+     "local_position_unity": [
+      -0.3,
+      0.858333,
+      13.8
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.858333,
+      13.8
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.858333,
+      -13.8
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.4375,
+     "phase": "jump",
+     "jump_progress": 0.125,
+     "anim_time": 0.125,
+     "local_position_unity": [
+      -0.3,
+      0.858333,
+      10.35
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.858333,
+      10.35
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.858333,
+      -10.35
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.625,
+     "phase": "jump",
+     "jump_progress": 0.25,
+     "anim_time": 0.25,
+     "local_position_unity": [
+      -0.3,
+      0.858333,
+      6.9
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.858333,
+      6.9
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.858333,
+      -6.9
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.0,
+     "phase": "jump",
+     "jump_progress": 0.5,
+     "anim_time": 0.5,
+     "local_position_unity": [
+      -0.3,
+      0.858333,
+      0.0
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.858333,
+      0.0
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.858333,
+      0.0
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.375,
+     "phase": "jump",
+     "jump_progress": 0.75,
+     "anim_time": 0.75,
+     "local_position_unity": [
+      -0.3,
+      0.858333,
+      -6.9
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.858333,
+      -6.9
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.858333,
+      6.9
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.75,
+     "phase": "jump",
+     "jump_progress": 1.0,
+     "anim_time": 1.0,
+     "local_position_unity": [
+      -0.3,
+      0.858333,
+      -13.8
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.858333,
+      -13.8
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.858333,
+      13.8
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    }
+   ]
+  },
+  {
+   "name": "Bad Habits fake note: static definitePosition [-5, 1.7, 16.6] with disableNoteGravity",
+   "input": {
+    "x": 0.0,
+    "y": 0.0,
+    "start_layer": 0.0,
+    "disableNoteGravity": true,
+    "animation": {
+     "definitePosition": [
+      [
+       -5,
+       1.7,
+       16.6,
+       0.0
+      ]
+     ]
+    }
+   },
+   "spawn": {
+    "line_index": 0.0,
+    "line_layer": 0.0,
+    "start_layer": 0.0,
+    "move_offset": [
+     -0.9,
+     0.25,
+     0.0
+    ],
+    "jump_end_offset": [
+     -0.9,
+     0.25,
+     0.0
+    ],
+    "gravity_base": 0.608333,
+    "note_offset": [
+     -0.9,
+     0.858333,
+     0.0
+    ]
+   },
+   "samples": [
+    {
+     "song_time": 9.0,
+     "phase": "move-in",
+     "jump_progress": null,
+     "anim_time": -0.166667,
+     "local_position_unity": [
+      -3.9,
+      1.878333,
+      59.96
+     ],
+     "world_position_unity": [
+      -3.9,
+      1.878333,
+      59.96
+     ],
+     "world_position_godot": [
+      -3.9,
+      1.878333,
+      -59.96
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.25,
+     "phase": "jump",
+     "jump_progress": 0.0,
+     "anim_time": 0.0,
+     "local_position_unity": [
+      -3.9,
+      1.878333,
+      9.96
+     ],
+     "world_position_unity": [
+      -3.9,
+      1.878333,
+      9.96
+     ],
+     "world_position_godot": [
+      -3.9,
+      1.878333,
+      -9.96
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.4375,
+     "phase": "jump",
+     "jump_progress": 0.125,
+     "anim_time": 0.125,
+     "local_position_unity": [
+      -3.9,
+      1.878333,
+      9.96
+     ],
+     "world_position_unity": [
+      -3.9,
+      1.878333,
+      9.96
+     ],
+     "world_position_godot": [
+      -3.9,
+      1.878333,
+      -9.96
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.625,
+     "phase": "jump",
+     "jump_progress": 0.25,
+     "anim_time": 0.25,
+     "local_position_unity": [
+      -3.9,
+      1.878333,
+      9.96
+     ],
+     "world_position_unity": [
+      -3.9,
+      1.878333,
+      9.96
+     ],
+     "world_position_godot": [
+      -3.9,
+      1.878333,
+      -9.96
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.0,
+     "phase": "jump",
+     "jump_progress": 0.5,
+     "anim_time": 0.5,
+     "local_position_unity": [
+      -3.9,
+      1.878333,
+      9.96
+     ],
+     "world_position_unity": [
+      -3.9,
+      1.878333,
+      9.96
+     ],
+     "world_position_godot": [
+      -3.9,
+      1.878333,
+      -9.96
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.375,
+     "phase": "jump",
+     "jump_progress": 0.75,
+     "anim_time": 0.75,
+     "local_position_unity": [
+      -3.9,
+      1.878333,
+      9.96
+     ],
+     "world_position_unity": [
+      -3.9,
+      1.878333,
+      9.96
+     ],
+     "world_position_godot": [
+      -3.9,
+      1.878333,
+      -9.96
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.75,
+     "phase": "jump",
+     "jump_progress": 1.0,
+     "anim_time": 1.0,
+     "local_position_unity": [
+      -3.9,
+      1.878333,
+      9.96
+     ],
+     "world_position_unity": [
+      -3.9,
+      1.878333,
+      9.96
+     ],
+     "world_position_godot": [
+      -3.9,
+      1.878333,
+      -9.96
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    }
+   ]
+  },
+  {
+   "name": "time property 0.5 (Lagtrain GO track: \"_time\": [0.5]) holds the note at its hit position",
+   "input": {
+    "x": 1,
+    "y": 0.0,
+    "start_layer": 0.0,
+    "track": "GO"
+   },
+   "spawn": {
+    "line_index": 1,
+    "line_layer": 0.0,
+    "start_layer": 0.0,
+    "move_offset": [
+     -0.3,
+     0.25,
+     0.0
+    ],
+    "jump_end_offset": [
+     -0.3,
+     0.25,
+     0.0
+    ],
+    "gravity_base": 0.608333,
+    "note_offset": [
+     -0.3,
+     0.858333,
+     0.0
+    ]
+   },
+   "samples": [
+    {
+     "song_time": 9.0,
+     "phase": "move-in",
+     "jump_progress": null,
+     "anim_time": 0.5,
+     "local_position_unity": [
+      -0.3,
+      0.25,
+      62.65
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.25,
+      62.65
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.25,
+      -62.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.25,
+     "phase": "jump",
+     "jump_progress": 0.5,
+     "anim_time": 0.5,
+     "local_position_unity": [
+      -0.3,
+      0.858333,
+      0.65
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.858333,
+      0.65
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.858333,
+      -0.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.4375,
+     "phase": "jump",
+     "jump_progress": 0.5,
+     "anim_time": 0.5,
+     "local_position_unity": [
+      -0.3,
+      0.858333,
+      0.65
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.858333,
+      0.65
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.858333,
+      -0.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.625,
+     "phase": "jump",
+     "jump_progress": 0.5,
+     "anim_time": 0.5,
+     "local_position_unity": [
+      -0.3,
+      0.858333,
+      0.65
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.858333,
+      0.65
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.858333,
+      -0.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.0,
+     "phase": "jump",
+     "jump_progress": 0.5,
+     "anim_time": 0.5,
+     "local_position_unity": [
+      -0.3,
+      0.858333,
+      0.65
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.858333,
+      0.65
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.858333,
+      -0.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.375,
+     "phase": "jump",
+     "jump_progress": 0.5,
+     "anim_time": 0.5,
+     "local_position_unity": [
+      -0.3,
+      0.858333,
+      0.65
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.858333,
+      0.65
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.858333,
+      -0.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.75,
+     "phase": "jump",
+     "jump_progress": 0.5,
+     "anim_time": 0.5,
+     "local_position_unity": [
+      -0.3,
+      0.858333,
+      0.65
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.858333,
+      0.65
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.858333,
+      -0.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    }
+   ]
+  },
+  {
+   "name": "per-object NJS 30 offset 0 at 120 BPM (map NJS 16): its own jump",
+   "input": {
+    "x": 1,
+    "y": 0.0,
+    "start_layer": 0.0,
+    "noteJumpMovementSpeed": 30,
+    "noteJumpStartBeatOffset": 0.0
+   },
+   "spawn": {
+    "line_index": 1,
+    "line_layer": 0.0,
+    "start_layer": 0.0,
+    "move_offset": [
+     -0.3,
+     0.25,
+     0.0
+    ],
+    "jump_end_offset": [
+     -0.3,
+     0.25,
+     0.0
+    ],
+    "gravity_base": 0.608333,
+    "note_offset": [
+     -0.3,
+     0.858333,
+     0.0
+    ]
+   },
+   "samples": [
+    {
+     "song_time": 9.0,
+     "phase": "move-in",
+     "jump_progress": null,
+     "anim_time": -0.5,
+     "local_position_unity": [
+      -0.3,
+      0.25,
+      115.65
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.25,
+      115.65
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.25,
+      -115.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.4,
+     "phase": "move-in",
+     "jump_progress": null,
+     "anim_time": -0.1,
+     "local_position_unity": [
+      -0.3,
+      0.25,
+      35.65
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.25,
+      35.65
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.25,
+      -35.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 9.75,
+     "phase": "jump",
+     "jump_progress": 0.25,
+     "anim_time": 0.25,
+     "local_position_unity": [
+      -0.3,
+      0.70625,
+      8.15
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.70625,
+      8.15
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.70625,
+      -8.15
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.0,
+     "phase": "jump",
+     "jump_progress": 0.5,
+     "anim_time": 0.5,
+     "local_position_unity": [
+      -0.3,
+      0.858333,
+      0.65
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.858333,
+      0.65
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.858333,
+      -0.65
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    },
+    {
+     "song_time": 10.25,
+     "phase": "jump",
+     "jump_progress": 0.75,
+     "anim_time": 0.75,
+     "local_position_unity": [
+      -0.3,
+      0.70625,
+      -6.85
+     ],
+     "world_position_unity": [
+      -0.3,
+      0.70625,
+      -6.85
+     ],
+     "world_position_godot": [
+      -0.3,
+      0.70625,
+      6.85
+     ],
+     "transform_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "transform_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "dissolve": null,
+     "dissolveArrow": null,
+     "interactable": null
+    }
+   ]
+  }
+ ]
+}

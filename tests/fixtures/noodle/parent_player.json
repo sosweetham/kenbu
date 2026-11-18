@@ -1,0 +1,304 @@
+{
+ "source": "NoodleExtensions/Animation/ParentObject.cs (ApplyV2Transform, Update), PlayerTrack.cs (Update), Heck/Animation/Transform/TransformController.cs (v3) @ 3bbcaf6733f6faa688a70b296b4d83c92c1f5dc8",
+ "v3": "v3 maps: AssignTrackParent applies the event's position/localPosition/rotation/localRotation/scale (metres, TransformData.Apply) and a TransformController follows the parent track's position/localPosition/rotation/localRotation/scale; AssignPlayerToTrack uses a TransformController on the player object. Those are Heck's transform properties (chroma semantics 7.5), not offsetPosition.",
+ "cases": [
+  {
+   "name": "v2 AssignTrackParent _position [1, 0, 2] only",
+   "event": {
+    "_position": [
+     1,
+     0.0,
+     2
+    ]
+   },
+   "out": {
+    "localPosition_unity": [
+     0.6,
+     0.0,
+     1.2
+    ],
+    "localRotation_unity": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "localScale": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "localPosition_godot": [
+     0.6,
+     0.0,
+     -1.2
+    ],
+    "localRotation_godot": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   }
+  },
+  {
+   "name": "v2 AssignTrackParent _rotation [0, 90, 0]: the start rotation is applied twice to the orientation, once to the position (ParentObject quirk)",
+   "event": {
+    "_position": [
+     1,
+     0.0,
+     0.0
+    ],
+    "_rotation": [
+     0.0,
+     90,
+     0.0
+    ]
+   },
+   "out": {
+    "localPosition_unity": [
+     0.0,
+     0.0,
+     -0.6
+    ],
+    "localRotation_unity": [
+     0.0,
+     1.0,
+     0.0,
+     0.0
+    ],
+    "localScale": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "localPosition_godot": [
+     0.0,
+     0.0,
+     0.6
+    ],
+    "localRotation_godot": [
+     0.0,
+     -1.0,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "name": "v2 AssignTrackParent with parent-track _position [0, 0, 5] and _rotation [0, 0, 30]",
+   "event": {
+    "_position": [
+     1,
+     0.0,
+     0.0
+    ]
+   },
+   "track": {
+    "_position": [
+     0.0,
+     0.0,
+     5
+    ],
+    "_rotation": [
+     0.0,
+     0.0,
+     30
+    ]
+   },
+   "out": {
+    "localPosition_unity": [
+     0.519615,
+     0.3,
+     3.0
+    ],
+    "localRotation_unity": [
+     0.0,
+     0.0,
+     0.258819,
+     0.965926
+    ],
+    "localScale": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "localPosition_godot": [
+     0.519615,
+     0.3,
+     -3.0
+    ],
+    "localRotation_godot": [
+     0.0,
+     0.0,
+     0.258819,
+     0.965926
+    ]
+   }
+  },
+  {
+   "name": "Lagtrain ExpertPlus AssignPlayerToTrack PPP at beat 219.938 with AnimateTrack _rotation (0, -90, -180, -270, -360 over 0.95 beats): the play space spins once in 0.388 s",
+   "event": {
+    "AnimateTrack": {
+     "time": 89.770612,
+     "duration_s": 0.387755,
+     "easing": "easeLinear",
+     "_rotation": [
+      [
+       0.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       -90,
+       0.0,
+       0.25
+      ],
+      [
+       0.0,
+       -180,
+       0.0,
+       0.5
+      ],
+      [
+       0.0,
+       -270,
+       0.0,
+       0.75
+      ],
+      [
+       0.0,
+       -360,
+       0.0,
+       1,
+       "easeInOutSine"
+      ]
+     ]
+    }
+   },
+   "samples": [
+    {
+     "song_time": 89.770612,
+     "event_fraction": 0.0,
+     "player_root_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "player_root_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "yaw_deg_unity": 0.0
+    },
+    {
+     "song_time": 89.819082,
+     "event_fraction": 0.125,
+     "player_root_rotation_unity": [
+      0.0,
+      -0.382683,
+      0.0,
+      0.92388
+     ],
+     "player_root_rotation_godot": [
+      0.0,
+      0.382683,
+      0.0,
+      0.92388
+     ],
+     "yaw_deg_unity": -45.0
+    },
+    {
+     "song_time": 89.867551,
+     "event_fraction": 0.25,
+     "player_root_rotation_unity": [
+      0.0,
+      -0.707107,
+      0.0,
+      0.707107
+     ],
+     "player_root_rotation_godot": [
+      0.0,
+      0.707107,
+      0.0,
+      0.707107
+     ],
+     "yaw_deg_unity": -90.0
+    },
+    {
+     "song_time": 89.96449,
+     "event_fraction": 0.5,
+     "player_root_rotation_unity": [
+      0.0,
+      -1.0,
+      0.0,
+      0.0
+     ],
+     "player_root_rotation_godot": [
+      0.0,
+      1.0,
+      0.0,
+      0.0
+     ],
+     "yaw_deg_unity": -180.0
+    },
+    {
+     "song_time": 90.080816,
+     "event_fraction": 0.8,
+     "player_root_rotation_unity": [
+      0.0,
+      0.652137,
+      0.0,
+      0.758102
+     ],
+     "player_root_rotation_godot": [
+      0.0,
+      -0.652137,
+      0.0,
+      0.758102
+     ],
+     "yaw_deg_unity": 81.405765
+    },
+    {
+     "song_time": 90.119592,
+     "event_fraction": 0.9,
+     "player_root_rotation_unity": [
+      0.0,
+      0.268031,
+      0.0,
+      0.96341
+     ],
+     "player_root_rotation_godot": [
+      0.0,
+      -0.268031,
+      0.0,
+      0.96341
+     ],
+     "yaw_deg_unity": 31.094235
+    },
+    {
+     "song_time": 90.158367,
+     "event_fraction": 1.0,
+     "player_root_rotation_unity": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "player_root_rotation_godot": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "yaw_deg_unity": 0.0
+    }
+   ]
+  }
+ ]
+}
