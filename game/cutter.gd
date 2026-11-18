@@ -270,6 +270,61 @@ func _head_in_framed_wall(id: int, head: Vector3) -> bool:
 	return gap.length_squared() <= HEAD_RADIUS * HEAD_RADIUS
 
 
+## Whether a blade from `base` to `tip` (game space) passes through a wall at song time `t`: the
+## walls head_in_wall tests, met by the blade's segment instead of the head's sphere.
+func blade_in_wall(base: Vector3, tip: Vector3, t: float) -> bool:
+	for i in _spawner.active_count:
+		var id := _spawner.active[i]
+		if _spawner.kinds[id] != Spawner.Kind.WALL or not _touchable(id):
+			continue
+		if _spawner.flags[id] & (Spawner.FAKE | Spawner.UNINTERACTABLE) != 0:
+			continue
+		if _spawner.flags[id] & Spawner.FRAMED != 0:
+			if _blade_in_framed_wall(id, base, tip):
+				return true
+			continue
+		var front := _spawner.depth(id, t)
+		var half := _spawner.sizes[id].abs() * 0.5
+		var length := _spawner.sizes[id].z
+		var c := _spawner.centres[id]
+		if _segment_meets_box(base, tip,
+				Vector3(c.x - half.x, c.y - half.y, minf(front - length, front)),
+				Vector3(c.x + half.x, c.y + half.y, maxf(front - length, front))):
+			return true
+	return false
+
+
+func _blade_in_framed_wall(id: int, base: Vector3, tip: Vector3) -> bool:
+	var pose := Transform3D(
+		Basis(_spawner.pose_x[id], _spawner.pose_y[id], _spawner.pose_z[id]), _spawner.pose_origin[id])
+	if not _solid(pose.basis):
+		return false
+	var inverse := pose.affine_inverse()
+	var size := _spawner.sizes[id]
+	return _segment_meets_box(inverse * base, inverse * tip,
+		Vector3(-absf(size.x) * 0.5, minf(size.y, 0.0), minf(-size.z, 0.0)),
+		Vector3(absf(size.x) * 0.5, maxf(size.y, 0.0), maxf(-size.z, 0.0)))
+
+
+## Whether the segment from `a` to `b` meets the box from `lo` to `hi` (the slab test).
+static func _segment_meets_box(a: Vector3, b: Vector3, lo: Vector3, hi: Vector3) -> bool:
+	var enter := 0.0
+	var leave := 1.0
+	var d := b - a
+	for axis in 3:
+		if absf(d[axis]) < FLAT:
+			if a[axis] < lo[axis] or a[axis] > hi[axis]:
+				return false
+			continue
+		var near := (lo[axis] - a[axis]) / d[axis]
+		var far := (hi[axis] - a[axis]) / d[axis]
+		enter = maxf(enter, minf(near, far))
+		leave = minf(leave, maxf(near, far))
+		if enter > leave:
+			return false
+	return true
+
+
 ## A player's blade between frames: linear between its last two poses.
 func _pose_blade(blade: Blade, fa: float, fb: float) -> void:
 	_blade_base_a = blade.prev_base.lerp(blade.base, fa)

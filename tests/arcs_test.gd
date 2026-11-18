@@ -535,6 +535,16 @@ func _check_dissolve() -> void:
 		if t > miss_time + 0.05 and t < miss_time + 0.1:
 			_expect(arcs.dissolving(lost_arc) and not arcs.dissolving(kept_arc),
 				"dissolve: missed head %s, cut head %s" % [arcs.dissolving(lost_arc), arcs.dissolving(kept_arc)])
+		# An arc buzzes its colour's controller from its head's time while its head is not missed.
+		if t > 1.0 and t <= 1.0 + FRAME:
+			_expect(not arcs.passing(0, t) and not arcs.passing(1, t), "passing: no arc before its head's time")
+		if t > 2.05 and t <= 2.05 + FRAME:
+			_expect(arcs.passing(0, t) and arcs.passing(1, t), "passing: both arcs once their heads arrive")
+		if t > 3.0 and t <= 3.0 + FRAME:
+			_expect(arcs.passing(1, t) and not arcs.passing(0, t),
+				"passing at 3 s: the cut arc %s, the dissolved one %s" % [arcs.passing(1, t), arcs.passing(0, t)])
+		if t > 4.5 and t <= 4.5 + FRAME:
+			_expect(not arcs.passing(1, t), "passing: no arc after its tail's time")
 		t += FRAME
 	var expected := miss_time + Arcs.DISSOLVE_SECONDS
 	_expect(absf(lost_gone - expected) <= FRAME * 2.0,

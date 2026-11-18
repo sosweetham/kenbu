@@ -104,6 +104,8 @@ var _points: Array = []
 var _paths: PackedVector3Array = PackedVector3Array()
 ## The index in Beatmap.arcs each arc came from.
 var _sources: PackedInt32Array = PackedInt32Array()
+## Each arc's colour (Beatmap.Arc `color`).
+var _colors: PackedInt32Array = PackedInt32Array()
 var _firsts: PackedFloat64Array = PackedFloat64Array()
 var _lasts: PackedFloat64Array = PackedFloat64Array()
 var _tints: PackedColorArray = PackedColorArray()
@@ -161,6 +163,7 @@ func setup(beatmap: Beatmap, colors: PackedColorArray, njs: float, lead: float, 
 			continue
 		var forwards := arc.tail_time >= arc.head_time
 		_sources.append(index)
+		_colors.append(arc.color)
 		_firsts.append(minf(arc.head_time, arc.tail_time))
 		_lasts.append(maxf(arc.head_time, arc.tail_time))
 		_leads.append(arc_lead)
@@ -254,6 +257,16 @@ func first_time(arc: int) -> float:
 
 func last_time(arc: int) -> float:
 	return _lasts[arc]
+
+
+## Whether an arc of colour `color` is passing the player at song time `t`: in flight, between its
+## ends' times and not dissolving (its head note was not missed).
+func passing(color: int, t: float) -> bool:
+	for i in active_count:
+		var arc := active[i]
+		if _colors[arc] == color and _firsts[arc] <= t and t <= _lasts[arc] and _dissolve_from[arc] >= WHOLE:
+			return true
+	return false
 
 
 ## Whether arc `arc` has begun to dissolve.

@@ -323,6 +323,14 @@ func _check_fakes_and_uninteractables() -> void:
 		var head := Vector3(rig.spawner.centres[0].x, 1.5, -0.2)
 		_expect_eq("%s catches the head" % case[0], rig.cutter.head_in_wall(head, map.tempo.seconds(5.0)),
 			bool(case[3]))
+		# A blade held across the wall through that point is in it (its controller buzzes); one held
+		# beside it is not.
+		var across := Vector3(2.0, 0.0, 0.0)
+		_expect_eq("%s holds a blade across it" % case[0],
+			rig.cutter.blade_in_wall(head - across, head + across, map.tempo.seconds(5.0)), bool(case[3]))
+		var beside := head + Vector3(1.0, 0.0, 0.0)
+		_expect(not rig.cutter.blade_in_wall(beside, beside + across, map.tempo.seconds(5.0)),
+			"%s: a blade beside it is not in it" % case[0])
 		_free(rig)
 
 
@@ -428,6 +436,16 @@ func _check_walls() -> void:
 		var pose := rig.spawner.pose(0)
 		var head: Vector3 = pose.origin + (case[4] as Vector3)
 		_expect_eq("%s catches the head" % case[0], rig.cutter.head_in_wall(head, t), bool(case[5]))
+		if turned:
+			# In the wall's own frame: a blade across its middle is in it, one above its top is not.
+			var size := rig.spawner.sizes[0]
+			var middle := Vector3(0.0, size.y * 0.5, -size.z * 0.5)
+			var across := Vector3(absf(size.x) + 1.0, 0.0, 0.0)
+			var above := Vector3(0.0, absf(size.y) * 0.5 + 0.5, 0.0)
+			_expect(rig.cutter.blade_in_wall(pose * (middle - across), pose * (middle + across), t),
+				"%s: a blade across it is in it" % case[0])
+			_expect(not rig.cutter.blade_in_wall(pose * (middle + above - across), pose * (middle + above + across), t),
+				"%s: a blade above it is not in it" % case[0])
 		_free(rig)
 
 
