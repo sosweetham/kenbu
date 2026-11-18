@@ -210,6 +210,12 @@ func _check_avatar(id: String, index: int) -> void:
 	_cost[id] = cost
 	_expect(cost <= COST_MS, "%s %s: the solver and spring bones take %.3f ms a frame, at most %.1f" % [id, name, cost, COST_MS])
 	var springs := Springs.bone_count(avatar.extras.spring_plan)
+	var sim: SpringBoneSimulator3D = avatar.extras.springs
+	# In world space a skeleton scaled in the world (an armature imported at 100x) would have bones
+	# 1/100 of their length there, and its hair would trail whatever moved it.
+	for i in (sim.setting_count if sim != null else 0):
+		_expect(sim.get_center_from(i) == SpringBoneSimulator3D.CENTER_FROM_NODE and sim.get_center_node(i) == NodePath(".."),
+			"%s %s: spring chain %d is simulated in the skeleton's space" % [id, name, i])
 	print(line + " | arms %.2f springs %d cost %.3f ms" % [avatar.arm_fit, springs, cost])
 	_drop(avatar, model, id)
 

@@ -9,8 +9,10 @@
 ## by a curve over the distance from the root.
 ##
 ## Godot's simulator integrates the same way (Verlet, per joint: inertia less drag, a pull back to
-## the rest direction, gravity, the bone length kept), in the skeleton's space, once a rendered
-## frame. The mapping, per joint, at its distance along its tree so the curves spread as Dynamic
+## the rest direction, gravity, the bone length kept), once a rendered frame, here in the
+## skeleton's space (each chain centred on the skeleton): Godot keeps bone lengths in the
+## skeleton's units, so in world space a skeleton scaled in the world (an armature imported at
+## 100x) would have bones 1/100 of their length there, and its hair would trail whatever moved it. The mapping, per joint, at its distance along its tree so the curves spread as Dynamic
 ## Bone spreads them, for a frame rate of FRAME_RATE and Dynamic Bone's own update rate r:
 ## - drag = 1 - (1 - damping)^(r / FRAME_RATE): the same share of speed lost each second;
 ## - stiffness = (elasticity + STIFFNESS_SHARE x stiffness) x r^2 x bone length / FRAME_RATE:
@@ -111,6 +113,8 @@ static func build(spring_plan: Dictionary, skeleton: Skeleton3D) -> SpringBoneSi
 	sim.setting_count = chains.size()
 	for i in chains.size():
 		var chain: Dictionary = chains[i]
+		sim.set_center_from(i, SpringBoneSimulator3D.CENTER_FROM_NODE)
+		sim.set_center_node(i, NodePath(".."))
 		sim.set_root_bone_name(i, skeleton.get_bone_name(int(chain.root)))
 		sim.set_end_bone_name(i, skeleton.get_bone_name(int(chain.end)))
 		if float(chain.extend) > 0.0:
