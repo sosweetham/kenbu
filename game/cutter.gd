@@ -74,6 +74,14 @@ const BOMB_PLANES: PackedFloat32Array = [0.0, 0.5, -0.5]
 const BLADE_SLACK: float = 0.02
 const HEAD_RADIUS: float = 0.1
 const HIT_CAPACITY: int = 64
+## A good cut leaves a haptic copy of the object's good-cut box (GOOD_DOT across, GOOD_BACK to
+## GOOD_FRONT deep) flying on down its path for GHOST_SECONDS, until it is past the player. A blade
+## inside one buzzes its controller (game/game.gd), so a slice is felt for as long as the blade is in
+## the note rather than only at the instant of the cut.
+const GHOST_CAPACITY: int = 64
+const GHOST_SECONDS: float = 0.3
+const NOTE_BUZZ: float = 0.6
+const LINK_BUZZ: float = 0.35
 ## A framed object scaled flatter than this along any axis has no volume to touch.
 const FLAT: float = 1e-4
 
@@ -157,6 +165,19 @@ var _hit_z: PackedVector3Array = PackedVector3Array()
 var _hit_flight: PackedVector3Array = PackedVector3Array()
 var _hit_time: PackedFloat64Array = PackedFloat64Array()
 
+## The haptic copies good cuts leave, reused oldest first: the object, whether it is framed, its
+## buzz, its cut time and, for a framed one, its pose then and its velocity down its path.
+var _ghost_next: int = 0
+var _ghost_id: PackedInt32Array = PackedInt32Array()
+var _ghost_framed: PackedByteArray = PackedByteArray()
+var _ghost_buzz: PackedFloat64Array = PackedFloat64Array()
+var _ghost_time: PackedFloat64Array = PackedFloat64Array()
+var _ghost_at: PackedVector3Array = PackedVector3Array()
+var _ghost_x: PackedVector3Array = PackedVector3Array()
+var _ghost_y: PackedVector3Array = PackedVector3Array()
+var _ghost_z: PackedVector3Array = PackedVector3Array()
+var _ghost_flight: PackedVector3Array = PackedVector3Array()
+
 
 ## `beatmap` serves Noodle's `time` on real notes (null: none is held).
 func setup(
@@ -196,6 +217,17 @@ func setup(
 	_hit_z.resize(HIT_CAPACITY)
 	_hit_flight.resize(HIT_CAPACITY)
 	_hit_time.resize(HIT_CAPACITY)
+	_ghost_next = 0
+	_ghost_id.resize(GHOST_CAPACITY)
+	_ghost_framed.resize(GHOST_CAPACITY)
+	_ghost_buzz.resize(GHOST_CAPACITY)
+	_ghost_time.resize(GHOST_CAPACITY)
+	_ghost_time.fill(-INF)
+	_ghost_at.resize(GHOST_CAPACITY)
+	_ghost_x.resize(GHOST_CAPACITY)
+	_ghost_y.resize(GHOST_CAPACITY)
+	_ghost_z.resize(GHOST_CAPACITY)
+	_ghost_flight.resize(GHOST_CAPACITY)
 
 
 ## Judges everything that happened between song times `t0` and `t1`, the times of the spawner's last
@@ -782,9 +814,47 @@ func _apply_hits() -> void:
 			_tint_blade(hand, _spawner.cut_tint(id))
 		if good:
 			_haptic.call(hand, 0.25 if kind == Spawner.Kind.LINK else 0.45, 0.04)
+			_leave_ghost(id, kind, _hit_at[k], frame, _hit_flight[k], _hit_time[k])
 		else:
 			_haptic.call(hand, 0.8, 0.1)
 	_hit_count = 0
+
+
+## How strongly a blade from `base` to `tip` (game space) buzzes at song time `t` inside the haptic
+## copies of the objects good cuts took (0 outside them all): a plain object's copy flies on down its
+## lane, a framed one's on along its velocity at the cut, in its frame then.
+func cut_buzz(base: Vector3, tip: Vector3, t: float) -> float:
+	var strongest := 0.0
+	var lo := Vector3(-GOOD_DOT.x * 0.5, -GOOD_DOT.y * 0.5, GOOD_BACK)
+	var hi := Vector3(GOOD_DOT.x * 0.5, GOOD_DOT.y * 0.5, GOOD_FRONT)
+	for g in GHOST_CAPACITY:
+		var age := t - _ghost_time[g]
+		if age < 0.0 or age > GHOST_SECONDS or _ghost_buzz[g] <= strongest:
+			continue
+		if _ghost_framed[g] == 1:
+			var inverse := Transform3D(Basis(_ghost_x[g], _ghost_y[g], _ghost_z[g]),
+				_ghost_at[g] + _ghost_flight[g] * age).affine_inverse()
+			if _segment_meets_box(inverse * base, inverse * tip, lo, hi):
+				strongest = _ghost_buzz[g]
+			continue
+		var centre := Vector3(_ghost_at[g].x, _ghost_at[g].y, _spawner.depth(_ghost_id[g], t))
+		if _segment_meets_box(base - centre, tip - centre, lo, hi):
+			strongest = _ghost_buzz[g]
+	return strongest
+
+
+func _leave_ghost(id: int, kind: int, at: Vector3, frame: Basis, flight: Vector3, time: float) -> void:
+	var g := _ghost_next
+	_ghost_next = (_ghost_next + 1) % GHOST_CAPACITY
+	_ghost_id[g] = id
+	_ghost_framed[g] = 1 if _spawner.flags[id] & Spawner.FRAMED != 0 else 0
+	_ghost_buzz[g] = LINK_BUZZ if kind == Spawner.Kind.LINK else NOTE_BUZZ
+	_ghost_time[g] = time
+	_ghost_at[g] = at
+	_ghost_x[g] = frame.x
+	_ghost_y[g] = frame.y
+	_ghost_z[g] = frame.z
+	_ghost_flight[g] = flight
 
 
 ## Chroma recolours a blade with each note of its own colour it cuts (NoteColorizerManager

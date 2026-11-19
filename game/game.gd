@@ -43,9 +43,10 @@ const WORLD_GROUP: StringName = &"kenbu_world"
 ## The world analyses the song on this bus and creates it if missing; until then a player set to
 ## it plays on Master.
 const MUSIC_BUS: StringName = &"Music"
-## A blade inside a wall buzzes its controller, and an arc buzzes its colour's controller lightly
-## from its head to its tail, as the game does. Each buzz is a pulse renewed before it runs out,
-## so it feels continuous without a pulse every frame.
+## A blade inside a wall, or inside the haptic copy of a note it has cut (game/cutter.gd `cut_buzz`),
+## buzzes its controller, and an arc buzzes its colour's controller lightly from its head to its tail.
+## Each buzz is a pulse renewed before it runs out, so it feels continuous without a pulse every
+## frame; a stronger one starts at once.
 const WALL_BUZZ: float = 0.5
 const ARC_BUZZ: float = 0.15
 const BUZZ_SECONDS: float = 0.1
@@ -62,6 +63,8 @@ var _hands: Array = [0, 1]
 var _rig_haptics: bool = false
 ## Per hand, the real time (seconds) at which its current buzz pulse must be renewed.
 var _buzz_renew: PackedFloat64Array = PackedFloat64Array([0.0, 0.0])
+## Per hand, the strength of its current buzz pulse.
+var _buzz_level: PackedFloat64Array = PackedFloat64Array([0.0, 0.0])
 ## The rig takes a play frame (xr/rig.gd `set_play_frame`), and this play has given it one.
 var _rig_rides: bool = false
 var _rig_placed: bool = false
@@ -440,14 +443,17 @@ func _buzz(t: float) -> void:
 	var now := Time.get_ticks_usec() * 1e-6
 	for blade in _blades:
 		var hand := blade.hand
-		var amplitude := 0.0
-		if _cutter.blade_in_wall(blade.base, blade.tip, t):
+		var amplitude := _cutter.cut_buzz(blade.base, blade.tip, t)
+		if amplitude < WALL_BUZZ and _cutter.blade_in_wall(blade.base, blade.tip, t):
 			amplitude = WALL_BUZZ
-		elif _spawner.arcs.passing(hand, t):
+		if amplitude == 0.0 and _spawner.arcs.passing(hand, t):
 			amplitude = ARC_BUZZ
-		if amplitude > 0.0 and now >= _buzz_renew[hand]:
+		if amplitude == 0.0:
+			_buzz_level[hand] = 0.0
+		elif now >= _buzz_renew[hand] or amplitude > _buzz_level[hand]:
 			_haptic(hand, amplitude, BUZZ_SECONDS)
 			_buzz_renew[hand] = now + BUZZ_SECONDS - BUZZ_OVERLAP
+			_buzz_level[hand] = amplitude
 
 
 func _haptic(hand: int, amplitude: float, seconds: float) -> void:

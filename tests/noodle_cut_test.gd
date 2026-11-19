@@ -124,6 +124,7 @@ func _process(_delta: float) -> bool:
 	_check_fakes_and_uninteractables()
 	_check_bad_cut_switches()
 	_check_links()
+	_check_cut_buzz()
 	_check_walls()
 	var scratch := ProjectSettings.globalize_path("%s_%d" % [SCRATCH, OS.get_process_id()])
 	_remove_tree(scratch)
@@ -396,6 +397,37 @@ func _check_links() -> void:
 			_expect_eq("link: three cuts scored in time order with the multiplier", rig.score.score,
 				Rules.cut_score(SWEEP_SPEED, 0.0) * 3)
 		_free(rig)
+
+
+## A good cut leaves a haptic copy of the note's good-cut box flying on down its path: a blade across
+## where the note now is buzzes, one beside it does not, and none does once the copy has flown
+## (GHOST_SECONDS); a bad cut leaves none. The same for a note the map turns (framed).
+func _check_cut_buzz() -> void:
+	var down := Vector3.DOWN
+	var through := Vector3(0.0, 1.0, 0.0)
+	for turned: bool in [false, true]:
+		for good: bool in [true, false]:
+			var map := _noodle_map()
+			var note := _note(map, 4.0, 1, 0, 1, Beatmap.Cut.DOWN)
+			if turned:
+				note.noodle = Beatmap.Noodle.new()
+				note.noodle.flags = Beatmap.Noodle.WORLD_ROTATED
+				note.noodle.world_rotation = Quaternion(Vector3.UP, -PI * 0.5)
+			var rig := _rig(map)
+			var from := -down * 0.3 if good else down * 0.3
+			_sweep_rig(rig, 0, from, -from, 0.5, Vector3.RIGHT, 1, SWEEP_SPEED)
+			var what := "%s %s cut" % ["a turned note's" if turned else "a note's", "good" if good else "bad"]
+			_expect_eq("%s: framed" % what, rig.spawner.flags[0] & Spawner.FRAMED != 0, turned)
+			var later := rig.spawner.times[0] + 0.05
+			var centre := rig.spawner.pose_at(0, later).origin
+			_expect_eq("%s: a blade through where the note now is" % what,
+				rig.cutter.cut_buzz(centre - through, centre + through, later), Cutter.NOTE_BUZZ if good else 0.0)
+			var beside := centre + Vector3(2.0, 0.0, 0.0)
+			_expect_eq("%s: a blade beside it" % what, rig.cutter.cut_buzz(beside - through, beside + through, later), 0.0)
+			var gone := rig.spawner.times[0] + Cutter.GHOST_SECONDS + 0.05
+			var there := rig.spawner.pose_at(0, gone).origin
+			_expect_eq("%s: once its copy has flown" % what, rig.cutter.cut_buzz(there - through, there + through, gone), 0.0)
+			_free(rig)
 
 
 ## The head against walls in their own frame: a wall the map rolls 45 degrees (localRotation, about
